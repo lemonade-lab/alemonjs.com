@@ -1,0 +1,17 @@
+{
+  "name": "alemonjs-web",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.2",
+    "sass": "^1.69.7",
+    "vitepress": "1.0.0-rc.20",
+    "vue": "^3.3.8"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "pre": "vitepress preview docs",
+    "format": "npx prettier --write ."
+  }
+}
