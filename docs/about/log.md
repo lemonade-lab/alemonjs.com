@@ -18,7 +18,9 @@ outline: deep
 - 修复 villa 鉴权数据错误
 - 同步 dc 平台接口名为官网接口名
 
-::: details 2024-01-10 13:30 V1.2.0-rc.7
+:::
+
+::: details 2024-01-10 13:30 V1.2.0-rc.8
 
 - 修复 QQ 平台重连机制
 - AMessage 更名为 AEvent
