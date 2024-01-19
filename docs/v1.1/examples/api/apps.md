@@ -45,17 +45,17 @@ outline: deep
 ::: code-group
 
 ```sh [npm]
-npm install alemonjs@latest
+npm install alemonjs@1.1.40
 ```
 
 ```sh [pnpm]
 npm install pnpm -g
-pnpm install alemonjs@latest
+pnpm install alemonjs@1.1.40
 ```
 
 ```sh [yarn]
 npm install yarn -g
-yarn install alemonjs@latest
+yarn install alemonjs@1.1.40
 ```
 
 :::
@@ -158,7 +158,7 @@ createApp(import.meta.url)
 ## 热开发启动
 
 ```sh
-npm install afloat
+npm install afloat@1.1.13
 ```
 
 `afloat.config.ts`

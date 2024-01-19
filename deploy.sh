@@ -15,4 +15,4 @@ git init
 git add -A
 git commit -m 'add'
 
-git push -f git@github.com:ningmengchongshui/alemonjs.git master:docs
+git push -f git@github.com:ningmengchongshui/alemonjs.com.git master:docs
