@@ -10,9 +10,9 @@ outline: deep
 
 访问 `https://unpkg.com/vue@3/dist/vue.global.js`
 
-并把内容下载下来后放置 `~/global.js`
+并把内容下载下来，放置在 `.image/global.js`
 
-`alemonjs` 将默认加载该该文件
+`alemonjs/resources/index.html` 将默认加载该文件
 
 你可以选择其他 vue 版本
 
@@ -40,6 +40,7 @@ Vue.createApp({
 </script>
 
 <template>
+  <!-- 必须绑定id,详细请看vue文档中关于cdn的写法 -->
   <div id="app">
     <div v-for="val of data" :key="val">
       {{ val }}
@@ -98,7 +99,7 @@ const img = await Image.screenshot()
 
 `<script> </script>`
 
-> 以上几个标签不可增加任何修饰符,且不能有空格
+> 以上几个标签不可增加任何修饰符
 
 > 比如 `<style src="url"> </style>`
 
@@ -106,14 +107,9 @@ const img = await Image.screenshot()
 
 有时候我们需要在 html 中放入一些请求头部
 
-你可以在 vue 中新增`head`标签来达到近似效果
+你可以在 vue 中新增`head`标签来达到效果
 
 ```vue:line-numbers=1 {2}
-<template>
-  <div id="app">
-  </div>
-</template>
-
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -124,9 +120,12 @@ const img = await Image.screenshot()
 ```vue:line-numbers=1
 <template>
   <div id="app">
-    <div class="p-2">Alemon-Image</div>
+    <div class="card">
+      卡片
+    </div>
   </div>
 </template>
+
 ```
 
 ## 截图封装
@@ -148,7 +147,7 @@ export const app = importPath(import.meta.url)
 ```ts:line-numbers=1
 import { createImage } from 'alemonjs'
 import { app } from './config.js'
-// 绑定@的位置
+// 绑定@的位置,如果你的应用未来放置在plugins下，并务必这么做
 const Image = createImage(app.cwd())
 /**
  * 图片发送
@@ -181,7 +180,7 @@ e.reply(img)
 
 公共资源都能用@来引入标记,如引入 css 文件
 
-> @ --> public
+> @/ --> public/
 
 `public/css/help.css`
 
@@ -199,7 +198,7 @@ e.reply(img)
 
 但你不能在 css 文件中使用@
 
-目前还未能支持外部资源@语法糖
+目前还未能支持外部资源使用`@`语法糖
 
 可以把需要的引入资源都写在 vue 文件中
 
@@ -219,7 +218,7 @@ e.reply(img)
 
 ## 固定资源
 
-用于解决网络波动造成的长时间无法请求 js 文件问题
+用于解决网络波动造成的长时间无法请求文件问题
 
 可把文件下载下来后,放置于`.image` 目录中
 
@@ -231,7 +230,7 @@ e.reply(img)
 </head>
 ```
 
-将会在`.image`目录中同步该资源,并匹配`~`
+> ~/ --> .image/
 
 ## 调用参数
 
@@ -242,31 +241,19 @@ e.reply(img)
 getLaunch:() => val<PuppeteerLaunchOptions>;
 // 修改初始化配置
 setLaunch: (val: PuppeteerLaunchOptions) => any;
-// 调整@的位置
-cwd: (cwd?: string) => any;
 // 使用vue字符串解析
 Render: ({
 str: string;
 data?: any;
 cance?: boolean;
 }) => any;
-// 使用vue文件路径解析
-create: ({
-late: string;
-data?: any;
-cance?: boolean;
-}) => any;
 // 得到解析后的html字符串
 getHtml: () => string;
-// 对html字符串进行截图
-screenshot: (options?: ImageOptions) => Promise<Buffer|string|false>;
 ```
 
 ## 热开发调试
 
-新增 ./image/ws.js 文件用于加载 ws 连接
-
-`.image/ws.js`
+新增 `./image/ws.js` 文件用于加载 ws 连接
 
 ```js
 const adr = window.location.origin.replace(/^(http|https)/, '')
@@ -286,8 +273,6 @@ socket.onerror = function (error) {}
 console.log('调节设备工具(机器人图片截图尺寸):800*960')
 ```
 
-通过机器人一次次的截图来查看图片效果的体验非常不友好
-
 现在,你通过启动浏览器服务进行调试
 
 ```sh
@@ -306,4 +291,4 @@ http://127.0.0.1:7070/index.vue
 
 此外,推荐调整设备大小为 `800*960`
 
-因为这是机器人的默认浏览器大小
+因为这是机器人默认的浏览器大小
