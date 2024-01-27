@@ -28,7 +28,11 @@ export default [
       { text: '事件对象', link: '/v1.2/examples/advanced/message' },
       { text: '应用对象', link: '/v1.2/examples/advanced/app' },
       { text: '频道类型', link: '/v1.2/examples/advanced/types' },
-      { text: '内置对象', link: '/v1.2/examples/advanced/obj' }
+      { text: '内置对象', link: '/v1.2/examples/advanced/obj' },
+      {
+        text: '图床与接口',
+        link: '/v1.2/examples/advanced/server'
+      }
     ]
   },
   {

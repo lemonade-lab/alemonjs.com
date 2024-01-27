@@ -91,44 +91,39 @@ export interface AlemonOptions {
     type?: 'ts' | 'js' | 'stript'
   }
   /**
-   * 指令预览
-   */
-  JSON?: {
-    /**
-     * 是否生成
-     * defaukt true
-     */
-    init?: false
-    /**
-     * 生成地址
-     * defaukt /publick/defset
-     */
-    address?: string
-  }
-  /**
    * 事件屏蔽
    */
   shieldEvent?: string[]
-
   /**
-   * **********
-   * 基础服务
-   * **********
+   * 图片存储函数
    */
-
+  imageStorage?: (val: Buffer) => Promise<string | false>
   /**
-   * puppeteer配置
+   * 服务器
    */
-  puppeteer?: PuppeteerLaunchOptions
+  server?: {
+    /**
+     * 应用端口
+     */
+    port?: number
+    /**
+     * 中间件
+     */
+    middleware?: any[]
+  }
+  /**
+   * 服务配置
+   */
+  file?: FileOptions
   /**
    * 是否启动pup
    * defaut true
    */
   pupStart?: false
   /**
-   * 服务配置
+   * puppeteer配置
    */
-  server?: ServerOptions
+  puppeteer?: PuppeteerLaunchOptions
   /**
    * redis配置
    */
@@ -149,7 +144,7 @@ export interface AlemonOptions {
 ::: code-group
 
 ```typescript [server]
-export interface ServerOptions {
+export interface FileOptions {
   /**
    * 协议
    */
@@ -174,15 +169,6 @@ export interface ServerOptions {
    * 本地路由构造
    */
   addressRouter?: string
-  /**
-   * 当前服务状态
-   */
-  state?: boolean
-  /**
-   * 定时清除是否开启
-   * 默认关闭
-   */
-  clear?: boolean
 }
 ```
 

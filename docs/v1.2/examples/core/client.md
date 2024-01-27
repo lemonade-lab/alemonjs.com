@@ -14,16 +14,16 @@ outline: deep
 
 同时能保持原生平台特有功能
 
-### ClientKOA
+### ClientFile
 
 ```ts:line-numbers=1
-import { ClientKOA } from 'alemonjs'
+import { ClientFile } from 'alemonjs'
 ```
 
 #### 固定文件暴露
 
 ```ts:line-numbers=1
-const url = await ClientKOA.getLocalFileUrl(
+const url = await ClientFile.getLocalFileUrl(
   '/plugins/point/public/img/ionc.png'
 )
 
@@ -34,17 +34,9 @@ const url = await ClientKOA.getLocalFileUrl(
 
 ```ts:line-numbers=1
 const img = '<buffer-img xxx >'
-const url = await ClientKOA.getFileUrl(img)
+const url = await ClientFile.getFileUrl(img)
 
 // url   http://[::]:port/api/xxx/1234567890.png
-```
-
-#### 动态文件定时清除
-
-```ts:line-numbers=1
-// 60s 清一次
-// 当挂载服务启动时,该行为默认开启
-ClientKOA.autoClearFiles(60000)
 ```
 
 ### ClientQQ
