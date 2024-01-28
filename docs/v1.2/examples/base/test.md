@@ -12,13 +12,17 @@ outline: deep
 
 ```typescript
 |-- .vscode/     代码片段
-|-- apps/    开发应用
+|-- src/    工程目录
+    |--    apps/        开发应用
+    |--    apps.ts      应用导出
+    |--    api.ts       开发接口
+    |--    utils.ts     工具类
 |-- afloat.config.ts      热开发配置
-|-- apps.ts               应用导出
 |-- main.ts               开发应用入口
 |-- alemon.config.ts      机器运行配置
 |-- alemon.env         环境变量配置
 |-- alemon.login.ts     个人登录配置
+|-- config.ts          当前目录变量
 |-- pm2.config.cjs        PM2启动
 ```
 
@@ -28,7 +32,7 @@ outline: deep
 
 因插件会不断升级,文档指令可能更新不及时
 
-实际指令可查看 `public/defset/point.json`
+实际指令可查看 `public/defset/alemonb.json`
 
 | 指令      | 描述                           |
 | --------- | ------------------------------ |
