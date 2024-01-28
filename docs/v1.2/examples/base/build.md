@@ -60,11 +60,11 @@ npm run dev # npx afloat dev
 
 ## 登录配置
 
-`a.login.config.ts`需要配置才能正确登录
+`alemon.login.ts`需要配置才能正确登录
 
 ```typescript:line-numbers=1
-import { LoginMap } from 'alemonjs'
-export const login: LoginMap = {
+import { ALoginOptions } from 'alemonjs'
+export default ALoginOptions({
   // 配置名 test
   test: {
     // qq平台配置
@@ -78,7 +78,7 @@ export const login: LoginMap = {
     // kook平台配置
     kook: {}
   }
-}
+})
 ```
 
 > 示例 1：配置 默认 平台 qq
@@ -151,6 +151,12 @@ export interface NtQQOptions {
   // 分片
   shard?: number[]
 }
+/**
+ * ntqq 无文件流发送接口
+ * 仅能通过url进行发送图片
+ * 使用服务器部署将自启本地接口服务器
+ * 也可以翻看图床栏目编写第三方图床接口
+ */
 ```
 
 ```ts{3,5,7,9} [VILLA]

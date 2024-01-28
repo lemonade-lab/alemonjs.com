@@ -4,27 +4,6 @@ outline: deep
 
 # 了解配置
 
-## 数据配置
-
-`a.db.config.ts`
-
-```typescript:line-numbers=1
-import { AlemonOptions } from 'alemonjs'
-export const mysql: AlemonOptions['mysql'] = {
-  user: 'root',
-  port: 3306,
-  password: 'Aa002580!',
-  host: 'localhost',
-  database: 'alemonjs'
-}
-export const redis: AlemonOptions['redis'] = {
-  password: '',
-  port: 6379,
-  host: '127.0.0.1',
-  db: 1
-}
-```
-
 ## 基础配置
 
 ```typescript
@@ -41,6 +20,11 @@ export interface AlemonOptions {
    * login配置
    */
   login?: LoginOptions
+  /**
+   * login 启动文件(相对路径)
+   * 默认 alemon.login.ts
+   */
+  loginDir?: string
   /**
    * 是否挂载应用
    */
@@ -99,6 +83,11 @@ export interface AlemonOptions {
    */
   imageStorage?: (val: Buffer) => Promise<string | false>
   /**
+   * dotenv
+   * 默认读取alemon.env文件
+   */
+  env?: DotenvConfigOptions
+  /**
    * 服务器
    */
   server?: {
@@ -124,14 +113,6 @@ export interface AlemonOptions {
    * puppeteer配置
    */
   puppeteer?: PuppeteerLaunchOptions
-  /**
-   * redis配置
-   */
-  redis?: RedisOptions
-  /**
-   * mysql配置
-   */
-  mysql?: MysqlOptions
   /**
    * 系统状态-邮箱订阅
    */
@@ -169,52 +150,6 @@ export interface FileOptions {
    * 本地路由构造
    */
   addressRouter?: string
-}
-```
-
-```typescript [redis]
-export interface RedisOptions {
-  /**
-   * 地址
-   */
-  host?: string
-  /**
-   * 端口
-   */
-  port?: number
-  /**
-   * 密码
-   */
-  password?: string
-  /**
-   * 数据库名
-   */
-  db?: number
-}
-```
-
-```typescript [mysql]
-export interface MysqlOptions {
-  /**
-   * 地址
-   */
-  host?: string
-  /**
-   * 端口
-   */
-  port?: number
-  /**
-   * 用户名
-   */
-  user?: string
-  /**
-   * 密码
-   */
-  password?: string
-  /**
-   * 数据库名
-   */
-  database?: string
 }
 ```
 

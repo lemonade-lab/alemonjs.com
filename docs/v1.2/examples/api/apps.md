@@ -64,15 +64,9 @@ yarn install alemonjs@latest
 
 `alemon.config.ts`
 
-```typescript:line-numbers=1 {5,6}
+```typescript:line-numbers=1
 import { defineAlemonConfig, analysis } from 'alemonjs'
 export default defineAlemonConfig({
-  login: {
-    qq: {
-      appID: 'your app id',
-      token: 'your token'
-    }
-  },
   app: {
     scripts: 'main.ts'
   }
@@ -80,6 +74,8 @@ export default defineAlemonConfig({
 ```
 
 ## 编写入口
+
+`main.ts`
 
 ```ts:line-numbers=1
 import { createApp, APlugin, AEvent } from 'alemonjs'
