@@ -1,28 +1,30 @@
 <script setup>
+// Import Css
 import "./home.css";
+// Import Js
+import { API } from '../axios'
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
 import 'swiper/css';
-
-
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-// data
-import { Sponsorship } from "./data";
-
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
 
+// Import Vue
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
+// View
 const size = ref(1);
 
-// 监听变化
+// Data
+const Sponsorship = ref([])
+
+// watch
 const update = () => {
     size.value = window.innerWidth < 600 ? 1 : 2;
     if (window.innerWidth >= 860) {
@@ -36,13 +38,21 @@ const update = () => {
     }
 }
 
+// c
 onMounted(() => {
     update()
-    // 监听视图宽度变化
     window.addEventListener('resize', update);
+    // 请求数据    
+    API.searchSponsors(1).then(res => res.data).then(res => {
+        if (res?.code == 200 && res?.data && Array.isArray(res.data) ){
+            for (const item of res.data) {
+                Sponsorship.value.push(item)
+            }
+        } else {
+            //
+        }
+    }).catch(console.error)
 })
-
-// 组件注销后，清除监听
 onBeforeUnmount(() => {
     window.removeEventListener('resize', update);
 })
@@ -54,9 +64,7 @@ onBeforeUnmount(() => {
  * 左右点击 navigation
  * 循环滚动 loop
  */
-
 const modules = [Autoplay, Pagination]
-
 </script>
 
 <template>
@@ -81,7 +89,7 @@ const modules = [Autoplay, Pagination]
 }">
                 <swiper-slide class="item" v-for="item of Sponsorship" :key="item.name">
                     <a target="_blank" :href="item.url">
-                        <img class="img" alt="" :src="item.img">
+                        <img class="img" alt="" :src="item.logo">
                         <div class="item-title">
                             {{ item.name }}
                         </div>
