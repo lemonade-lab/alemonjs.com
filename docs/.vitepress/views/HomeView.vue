@@ -22,7 +22,9 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 const size = ref(1);
 
 // Data
-const Sponsorship = ref([])
+const Personal = ref([])
+
+const Special = ref([])
 
 // watch
 const update = () => {
@@ -43,10 +45,27 @@ onMounted(() => {
     update()
     window.addEventListener('resize', update);
     // 请求数据    
+
+    /**
+     * 个人
+     */
     API.searchSponsors(1).then(res => res.data).then(res => {
-        if (res?.code == 200 && res?.data && Array.isArray(res.data) ){
+        if (res?.code == 200 && res?.data && Array.isArray(res.data)) {
             for (const item of res.data) {
-                Sponsorship.value.push(item)
+                Personal.value.push(item)
+            }
+        } else {
+            //
+        }
+    }).catch(console.error)
+
+    /**
+     * 插件
+     */
+    API.searchSponsors(2).then(res => res.data).then(res => {
+        if (res?.code == 200 && res?.data && Array.isArray(res.data)) {
+            for (const item of res.data) {
+                Special.value.push(item)
             }
         } else {
             //
@@ -69,16 +88,9 @@ const modules = [Autoplay, Pagination]
 
 <template>
     <div>
-        <!-- <div class="list-title">
-            Platinum Sponsors
-        </div>
-        <div class="list-title">
-            Gold Sponsors
-        </div> -->
         <div class="list-title">
             Personal Sponsorship（个人赞助）
         </div>
-
         <div class="flex-wrap-center">
             <swiper :modules="modules" :spaceBetween="30" :loop="true" :slides-per-view="size" :autoplay="{
                 delay: 2500,
@@ -87,7 +99,7 @@ const modules = [Autoplay, Pagination]
     clickable: true,
     type: 'progressbar',
 }">
-                <swiper-slide class="item" v-for="item of Sponsorship" :key="item.name">
+                <swiper-slide class="item" v-for="item of Personal" :key="item.name">
                     <a target="_blank" :href="item.url">
                         <img class="img" alt="" :src="item.logo">
                         <div class="item-title">
@@ -99,7 +111,30 @@ const modules = [Autoplay, Pagination]
                     </a>
                 </swiper-slide>
             </swiper>
-
+        </div>
+        <div class="list-title">
+            Special Sponsorship（特殊赞助）
+        </div>
+        <div class="flex-wrap-center">
+            <swiper :modules="modules" :spaceBetween="30" :loop="true" :slides-per-view="size" :autoplay="{
+                delay: 2500,
+                disableOnInteraction: false,
+            }" :pagination="{
+    clickable: true,
+    type: 'progressbar',
+}">
+                <swiper-slide class="item" v-for="item of Special" :key="item.name">
+                    <a target="_blank" :href="item.url">
+                        <img class="img" alt="" :src="item.logo">
+                        <div class="item-title">
+                            {{ item.name }}
+                        </div>
+                        <div class="item-title">
+                            {{ item.doc }}
+                        </div>
+                    </a>
+                </swiper-slide>
+            </swiper>
         </div>
     </div>
 </template>
