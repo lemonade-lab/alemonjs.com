@@ -29,6 +29,11 @@ const Sponsorship = [
         img: 'https://q1.qlogo.cn/g?b=qq&s=0&nk=2841644407',
         title: '喵~()',
         url: '/'
+    },
+    {
+        img: 'https://q1.qlogo.cn/g?b=qq&s=0&nk=2733977932',
+        title: '萧()',
+        url: '/'
     }
 ]
 </script>
