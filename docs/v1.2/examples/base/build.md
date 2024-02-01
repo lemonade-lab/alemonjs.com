@@ -34,7 +34,7 @@ yarn create alemonjs@latest -y
 cd alemonb
 ```
 
-> 国际环境建议取消依赖, 且 init 后删除.npmrc 配置
+> 国际环境建议取消依赖, 且 create 后删除.npmrc 配置
 
 ::: code-group
 

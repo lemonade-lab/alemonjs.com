@@ -118,15 +118,3 @@ app.responseEventType(e)
 // on
 app.response(e)
 ```
-
-## 节点寻找
-
-可以伪造任意数据来测试内部应用
-
-```typescript:line-numbers=1
-import { createApp, AEvent } from 'alemonjs'
-const app = createApp(import.meta.url)
-
-// 寻找所有class带正则的节点信息
-const reg = app.find()
-```

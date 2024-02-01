@@ -4,6 +4,8 @@ outline: deep
 
 # 平台开发
 
+以下内容描述,将假设 npm 包名为`alemon-mybot
+
 ## 基础讲解
 
 消息分为`字符串消息`和`非字符串消息`
@@ -12,7 +14,7 @@ outline: deep
 
 ```ts:line-numbers=1
 // alemonjs
-import { PlatformsItemType, AEvent } from 'alemonjs'
+import { APPS , AEvent } from 'alemonjs'
 export default {
   // 平台名
   name: 'mybot',
@@ -22,11 +24,9 @@ export default {
   },
   /**
    * @param options 登录配置
-   * @param resMessage 字符串消息
-   * @param resEvent 非字符串消息
    * @returns
    */
-  login: (options, resMessage, resEvent) => {
+  login: (options) => {
     // 使用 options 进行登录自定义的平台
 
     // 监听回调事件后
@@ -38,15 +38,14 @@ export default {
       } as AEvent
 
       // 如果消息属于字符串消息
-
       if (event?.type == 'MESSAGE') {
-        resMessage(e)
+        APPS.responseMessage(e)
       } else {
-        resEvent(e)
+        APPS.responseEventType(e)
       }
     }
   }
-} as PlatformsItemType
+}
 ```
 
 发 npm 包后
@@ -55,7 +54,7 @@ export default {
 
 ```ts:line-numbers=1
 import { defineAlemonConfig, analysis } from 'alemonjs'
-import MyBot from ''
+import MyBot from 'alemon-mybot'
 export default defineAlemonConfig({
   // 配置平台npm包即可
   platforms: [MyBot]
@@ -63,6 +62,8 @@ export default defineAlemonConfig({
 ```
 
 ## 登录声明
+
+`./config.ts`
 
 ```ts:line-numbers=1
 // 以自身命名为前缀
@@ -82,17 +83,25 @@ export interface MyBotLoginMap {
 ```
 
 ```ts:line-numbers=1
-import { BOTNAME } from ''
+import { BOTNAME } from './config.ts'
 export default {
   // 平台名
   name: BOTNAME
 }
 ```
 
-`a.login.config.ts`
+`alemon.login.ts`
 
 ```ts:line-numbers=1
-import { MyBotLoginMap } from 'my-bot'
-import { LoginMap } from 'alemonjs'
-export const login: LoginMap & MyBotLoginMap = {}
+import { ALoginOptions } from 'alemonjs'
+import { type MyBotLoginMap } from 'alemon-mybot'
+export default ALoginOptions<MyBotLoginMap>({
+  test: {
+    mybot: {
+      appID: '',
+      token: '',
+      masterID: ''
+    },
+  }
+})
 ```

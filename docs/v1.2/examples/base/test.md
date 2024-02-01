@@ -11,19 +11,20 @@ outline: deep
 ## 目录结构
 
 ```typescript
+|-- .image/      图片缓存
 |-- .vscode/     代码片段
 |-- src/    工程目录
     |--    apps/        开发应用
     |--    apps.ts      应用导出
     |--    api.ts       开发接口
     |--    utils.ts     工具类
-|-- afloat.config.ts      热开发配置
-|-- main.ts               开发应用入口
-|-- alemon.config.ts      机器运行配置
-|-- alemon.env         环境变量配置
-|-- alemon.login.ts     个人登录配置
-|-- config.ts          当前目录变量
-|-- pm2.config.cjs        PM2启动
+|-- .env              热开发环境配置
+|-- afloat.config.ts  热开发配置
+|-- alemon.config.ts  机器运行配置
+|-- alemon.env        环境变量配置
+|-- alemon.login.ts   个人登录配置
+|-- main.ts           开发应用入口
+|-- config.ts         当前应用常量
 ```
 
 ## 指令测试

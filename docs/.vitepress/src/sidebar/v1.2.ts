@@ -40,7 +40,6 @@ export default [
     items: [
       { text: '功能预览', link: '/v1.2/examples/core/function' },
       { text: '消息控制', link: '/v1.2/examples/core/controller' },
-      { text: '原生接口', link: '/v1.2/examples/core/client' },
       { text: '平台开发', link: '/v1.2/examples/core/platforms' }
     ]
   }

@@ -8,7 +8,7 @@ outline: deep
 import {} from 'alemonjs'
 ```
 
-### ABuffer
+### 数据 ABuffer
 
 把字符串地址转换成二维码
 
@@ -40,7 +40,7 @@ ABuffer.set('/public/buffer.ini')
 const img: Buffer | false = await ABuffer.get('/public/buffer.ini')
 ```
 
-### IP
+### 网址 IP
 
 获取公网地址
 
@@ -48,7 +48,7 @@ const img: Buffer | false = await ABuffer.get('/public/buffer.ini')
 const ip:string : false = await IP.get()
 ```
 
-### ABotConfig
+### 配置 ABotConfig
 
 机器人配置
 
@@ -56,7 +56,7 @@ const ip:string : false = await IP.get()
 const redis = ABotConfig.get('redis')
 ```
 
-### AObserver
+### 观察者 AObserver
 
 观察者
 
@@ -93,7 +93,7 @@ AObserver.cancel(key: string)
 AObserver.find(key: string)
 ```
 
-### AppLoadConfig
+### 解析配置 AppLoadConfig
 
 应用解析配置
 
@@ -101,7 +101,7 @@ AObserver.find(key: string)
 const data = AppLoadConfig.get('')
 ```
 
-### ALunchConfig
+### 截图配置 ALunchConfig
 
 截图工具初始化配置
 
@@ -109,7 +109,7 @@ const data = AppLoadConfig.get('')
 const data = ALunchConfig.set('headless', 'new')
 ```
 
-### Puppeteer
+### 浏览器 Puppeteer
 
 ```ts:line-numbers=1
 // 创建截图工具
@@ -141,7 +141,7 @@ Screenshot.setLaunch({})
 const data = Screenshot.getLaunch()
 ```
 
-### Email
+### 邮箱 Email
 
 该对象必须启动时配置 email
 
@@ -180,3 +180,51 @@ new Email({
   to:''
 }).send({})
 ```
+
+## 客户端 Client
+
+用于直接调用接口的客户端对象
+
+让开发框架不会因为兼容性导致接口缺失
+
+同时能保持原生平台特有功能
+
+### ClientFile
+
+```ts:line-numbers=1
+import { ClientFile } from 'alemonjs'
+```
+
+#### 固定文件暴露
+
+```ts:line-numbers=1
+const url = await ClientFile.getLocalFileUrl(
+  '/plugins/point/public/img/ionc.png'
+)
+
+// url   http://[::]:port/api/xxx?address=/plugins/point/public/img/ionc.png
+```
+
+#### 动态文件暴露
+
+```ts:line-numbers=1
+const img = '<buffer-img xxx >'
+const url = await ClientFile.getFileUrl(img)
+
+// url   http://[::]:port/api/xxx/1234567890.png
+```
+
+### All Client
+
+```ts:line-numbers=1
+import { ClientQQ } from 'alemonjs'
+import { ClientKOOK } from 'alemonjs'
+import { ClientVILLA } from 'alemonjs'
+import { ClientNTQQ } from 'alemonjs'
+```
+
+> 接口随平台同步更新
+
+> 请直接翻阅源码查看参数
+
+> [ClientQQ 源码查看](https://github.com/ningmengchongshui/alemonjs)

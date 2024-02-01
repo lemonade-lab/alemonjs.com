@@ -6,13 +6,13 @@ outline: deep
 
 - [查看 AlemonJS 接口|函数|声明](https://ningmengchongshui.github.io/alemonjs/)
 
-| Project           | Status                                               | Description     |
-| ----------------- | ---------------------------------------------------- | --------------- |
-| [alemonjs]        | [![alemonjs-status]][alemonjs-package]               | 标准应用解析器  |
-| [create-alemonjs] | [![create-alemonjs-status]][create-alemonjs-package] | 模板创建脚手架  |
-| [afloat]          | [![afloat-status]][afloat-package]                   | 热开发&打包工具 |
-| [alemon-ffmpeg]   | [![alemon-ffmpeg-status]][alemon-ffmpeg-package]     | ffmpeg 自动下载 |
-| [alemon-onebot]   | [![alemon-onebot-status]][alemon-onebot-package]     | OneBot 协议平台 |
+| Project           | Status                                               | Description    |
+| ----------------- | ---------------------------------------------------- | -------------- |
+| [alemonjs]        | [![alemonjs-status]][alemonjs-package]               | 标准应用解析器 |
+| [create-alemonjs] | [![create-alemonjs-status]][create-alemonjs-package] | 模板创建脚手架 |
+| [afloat]          | [![afloat-status]][afloat-package]                   | 应用构建工具   |
+
+>
 
 [alemonjs]: https://github.com/ningmengchongshui/alemonjs
 [alemonjs-status]: https://img.shields.io/npm/v/alemonjs.svg
@@ -26,21 +26,9 @@ outline: deep
 
 >
 
-[afloat]: https://github.com/ningmengchongshui/alemonjs/tree/afloat
+[afloat]: https://github.com/ningmengchongshui/alemonjs/tree/rollup
 [afloat-status]: https://img.shields.io/npm/v/afloat.svg
 [afloat-package]: https://www.npmjs.com/package/afloat
-
->
-
-[alemon-ffmpeg]: https://github.com/kongxiangyiren/alemon-ffmpeg
-[alemon-ffmpeg-status]: https://img.shields.io/npm/v/alemon-ffmpeg.svg
-[alemon-ffmpeg-package]: https://www.npmjs.com/package/alemon-ffmpeg
-
->
-
-[alemon-onebot]: https://github.com/ningmengchongshui/alemonjs/tree/alemon-onebot
-[alemon-onebot-status]: https://img.shields.io/npm/v/alemon-onebot.svg
-[alemon-onebot-package]: https://www.npmjs.com/package/alemon-onebot
 
 ## 启动配置
 
@@ -234,3 +222,40 @@ npx afloat build
 得到`dist/main.js`和`dist/package.json`
 
 > 放置于 plugins 目录下
+
+## 插件导出
+
+`export.json`
+
+```json
+{
+  "name": "xiuxian",
+  "version": "1.0.0",
+  "description": "说明",
+  "author": "作者",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "bullmq": "^4.12.7",
+    "ioredis": "^5.3.2",
+    "mysql2": "^3.6.2",
+    "sequelize": "^6.33.0"
+  },
+  "download": {
+    "gitee": {
+      "arg": "--depth=1 -b build",
+      "url": "https://gitee.com/ningmengchongshui/xiuxian-plugin.git"
+    }
+  },
+  "env": {
+    "ALEMONJS_REDIS_HOST": "localhost",
+    "ALEMONJS_REDIS_PORT": 6379,
+    "ALEMONJS_REDIS_PASSWORD": "",
+    "ALEMONJS_REDIS_DB": 3,
+    "ALEMONJS_MYSQL_DATABASE": "xiuxian",
+    "ALEMONJS_MYSQL_USER": "root",
+    "ALEMONJS_MYSQL_PASSWORD": "",
+    "ALEMONJS_MYSQL_HOST": "localhost",
+    "ALEMONJS_MYSQL_PROT": 3306
+  }
+}
+```

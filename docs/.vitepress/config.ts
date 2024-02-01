@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import head from './head'
 import locales from './locales'
+import { visualizer } from 'rollup-plugin-visualizer'
 export default defineConfig({
   /* 文档配置 */
   title: 'AlemonJS',
@@ -8,10 +9,50 @@ export default defineConfig({
   base: '/',
   // 说明
   description: 'document',
+  // 最后更新时间戳
+  lastUpdated: true,
   // lang: 'en',
   lang: 'zh',
   /* 标头配置 */
   head,
+  markdown: {
+  },
+  vite: {
+    plugins: [visualizer({ open: false })],
+    esbuild: {
+      // 删除 所有的console 和 debugger
+      drop: ['console', 'debugger']
+    },
+    // 打包切分
+    build: {
+      // v
+      minify: 'terser', // 启用压缩
+      terserOptions: {
+        compress: {
+          drop_console: true, // 删除所有 console
+          drop_debugger: true // 删除 debugger
+        }
+      },
+      //  rollup
+      rollupOptions: {
+        output: {
+          //自动分割包名输出 chunkSizeWarningLimit 配置大小
+          chunkFileNames: 'js/[name]-[hash].js', //入口文件名
+          entryFileNames: 'js/[name]-[hash].js', //出口文件名位置
+          assetFileNames: '[ext]/[name]-[hash].[ext]', //静态文件名位置
+          manualChunks(id: any) {
+            if (id.includes('node_modules')) {
+              return id
+                .toString()
+                .split('node_modules/')[1]
+                .split('/')[0]
+                .toString()
+            }
+          }
+        }
+      }
+    }
+  },
   /* 主题配置 */
   themeConfig: {
     logo: '/img/alemon.jpg',

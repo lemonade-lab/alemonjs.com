@@ -1,51 +1,29 @@
 <script setup>
-// Import Css
-import "./home.css";
-// Import Js
-import { API } from '../axios'
-
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import required modules
-import { Autoplay, Pagination } from 'swiper/modules';
-
 // Import Vue
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-// View
-const size = ref(1);
+// Import Css
+import "./home.css";
+// Import Js
+import { API } from '../axios'
+import { modules, autoplay, pagination, update, size } from './home'
 
 // Data
 const Personal = ref([])
-
 const Special = ref([])
-
-// watch
-const update = () => {
-    size.value = window.innerWidth < 600 ? 1 : 2;
-    if (window.innerWidth >= 860) {
-        size.value = 3;
-    }
-    if (window.innerWidth >= 1200) {
-        size.value = 4;
-    }
-    if (window.innerWidth >= 1400) {
-        size.value = 5;
-    }
-}
 
 // c
 onMounted(() => {
     update()
     window.addEventListener('resize', update);
     // 请求数据    
-
     /**
      * 个人
      */
@@ -72,57 +50,20 @@ onMounted(() => {
         }
     }).catch(console.error)
 })
+
 onBeforeUnmount(() => {
     window.removeEventListener('resize', update);
 })
-
-/**
- * 自动滚动 Autoplay
- * 间隙 spaceBetween
- * 点击 Pagination
- * 左右点击 navigation
- * 循环滚动 loop
- */
-const modules = [Autoplay, Pagination]
 </script>
 
 <template>
     <div>
         <div class="list-title">
-            Personal Sponsorship（个人赞助）
-        </div>
-        <div class="flex-wrap-center">
-            <swiper :modules="modules" :spaceBetween="30" :loop="true" :slides-per-view="size" :autoplay="{
-                delay: 2500,
-                disableOnInteraction: false,
-            }" :pagination="{
-    clickable: true,
-    type: 'progressbar',
-}">
-                <swiper-slide class="item" v-for="item of Personal" :key="item.name">
-                    <a target="_blank" :href="item.url">
-                        <img class="img" alt="" :src="item.logo">
-                        <div class="item-title">
-                            {{ item.name }}
-                        </div>
-                        <div class="item-title">
-                            {{ item.doc }}
-                        </div>
-                    </a>
-                </swiper-slide>
-            </swiper>
-        </div>
-        <div class="list-title">
             Special Sponsorship（特殊赞助）
         </div>
         <div class="flex-wrap-center">
-            <swiper :modules="modules" :spaceBetween="30" :loop="true" :slides-per-view="size" :autoplay="{
-                delay: 2500,
-                disableOnInteraction: false,
-            }" :pagination="{
-    clickable: true,
-    type: 'progressbar',
-}">
+            <swiper :modules="modules" :spaceBetween="30" :loop="Special.length > size " :slides-per-view="size" :autoplay="autoplay"
+                :pagination="pagination">
                 <swiper-slide class="item" v-for="item of Special" :key="item.name">
                     <a target="_blank" :href="item.url">
                         <img class="img" alt="" :src="item.logo">
@@ -136,6 +77,28 @@ const modules = [Autoplay, Pagination]
                 </swiper-slide>
             </swiper>
         </div>
+
+        <div class="list-title">
+            Personal Sponsorship（个人赞助）
+        </div>
+
+        <div class="flex-wrap-center">
+            <swiper :modules="modules" :spaceBetween="30" :loop="Personal.length > size " :slides-per-view="size" :autoplay="autoplay"
+                :pagination="pagination">
+                <swiper-slide class="item" v-for="item of Personal" :key="item.name">
+                    <a target="_blank" :href="item.url">
+                        <img class="img" alt="" :src="item.logo">
+                        <div class="item-title">
+                            {{ item.name }}
+                        </div>
+                        <div class="item-title">
+                            {{ item.doc }}
+                        </div>
+                    </a>
+                </swiper-slide>
+            </swiper>
+        </div>
+
     </div>
 </template>
 <style lang="scss" scoped>

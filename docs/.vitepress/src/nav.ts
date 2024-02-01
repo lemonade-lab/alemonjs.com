@@ -5,17 +5,8 @@ export default [
     link: '/about/problem'
   },
   {
-    text: '关于',
-    items: [
-      {
-        text: '更新记录',
-        link: '/about/log'
-      },
-      {
-        text: '参与成员',
-        link: '/about/team'
-      }
-    ]
+    text: '更新记录',
+    link: '/about/log'
   },
   {
     text: '版本',
