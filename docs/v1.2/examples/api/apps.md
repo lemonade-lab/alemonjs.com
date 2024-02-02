@@ -56,7 +56,7 @@ yarn install alemonjs@latest
 import { defineAlemonConfig, analysis } from 'alemonjs'
 export default defineAlemonConfig({
   app: {
-    scripts: 'main.ts'
+    scripts: 'src/main.ts'
   }
 })
 ```
@@ -162,9 +162,9 @@ export default defineAfloat({
   nodemon: {
     /**
      * 以`a.`开头的{ts,js}文件
-     * 目录apps下所有的文件
+     * 目录src下所有的文件
      */
-    watch: ['a.*.{ts,js}', 'apps']
+    watch: ['alemon.*.{ts,js}', 'src']
   }
 })
 ```
@@ -190,16 +190,26 @@ export default defineAfloat({
 
 > `afloat`启动时会自动读取本地文件`.env`
 
-```sh
-# 打印所有 api 请求后反馈的结果
-DISCORD_API_CONFIG='dev'
-DISCORD_API_DATA='dev'
-KOOK_API_CONFIG='dev'
-KOOK_API_DATA='dev'
-VILLA_API_CONFIG='dev'
-VILLA_API_DATA='dev'
-NTQQ_API_CONFIG='dev'
-NTQQ_API_DATA='dev'
+打印所有 api 请求后反馈的结果
+
+```ts
+DISCORD_API_CONFIG = 'dev'
+DISCORD_API_DATA = 'dev'
+```
+
+```ts
+NTQQ_API_CONFIG = 'dev'
+NTQQ_API_DATA = 'dev'
+```
+
+```ts
+VILLA_API_CONFIG = 'dev'
+VILLA_API_DATA = 'dev'
+```
+
+```ts
+KOOK_API_CONFIG = 'dev'
+KOOK_API_DATA = 'dev'
 ```
 
 ## 打包成插件

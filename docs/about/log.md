@@ -8,9 +8,11 @@ outline: deep
 
 > 所有废弃或不可使用版本不会记录在内
 
-::: details 2024-02-2 13:00 V1.2.0-rc.23
+::: details 2024-02-2 21:00 V1.2.0-rc.26
 
-- 优化 `importPath` 方法
+- 优化 `createApp`
+
+- 优化 `importPath`
 
 - 增加 alemon.env 和 alemon.login.ts
 

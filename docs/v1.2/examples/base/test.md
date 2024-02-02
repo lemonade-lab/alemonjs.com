@@ -14,17 +14,16 @@ outline: deep
 |-- .image/      图片缓存
 |-- .vscode/     代码片段
 |-- src/    工程目录
+    |--    api/         开发接口
     |--    apps/        开发应用
-    |--    apps.ts      应用导出
-    |--    router.ts       开发接口
-    |--    utils.ts     工具类
+    |--    utils/       工具类
+    |--    rules.ts     应用导出
+    |--    main.ts      入口
 |-- .env              热开发环境配置
-|-- .puppeteerrc.cjs   puppeteer配置
 |-- afloat.config.ts  热开发配置
 |-- alemon.config.ts  机器运行配置
 |-- alemon.env        环境变量配置
 |-- alemon.login.ts   个人登录配置
-|-- main.ts           开发应用入口
 ```
 
 ## 指令测试
