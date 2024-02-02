@@ -8,7 +8,9 @@ outline: deep
 
 > 所有废弃或不可使用版本不会记录在内
 
-::: details 2024-01-30 00:00 V1.2.0-rc.22
+::: details 2024-02-2 13:00 V1.2.0-rc.23
+
+- 优化 `importPath` 方法
 
 - 增加 alemon.env 和 alemon.login.ts
 

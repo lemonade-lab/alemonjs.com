@@ -16,15 +16,15 @@ outline: deep
 |-- src/    工程目录
     |--    apps/        开发应用
     |--    apps.ts      应用导出
-    |--    api.ts       开发接口
+    |--    router.ts       开发接口
     |--    utils.ts     工具类
 |-- .env              热开发环境配置
+|-- .puppeteerrc.cjs   puppeteer配置
 |-- afloat.config.ts  热开发配置
 |-- alemon.config.ts  机器运行配置
 |-- alemon.env        环境变量配置
 |-- alemon.login.ts   个人登录配置
 |-- main.ts           开发应用入口
-|-- config.ts         当前应用常量
 ```
 
 ## 指令测试

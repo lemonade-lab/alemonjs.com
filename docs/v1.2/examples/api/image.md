@@ -130,23 +130,13 @@ const img = await Image.screenshot()
 
 ## 截图封装
 
-- 获取插件位置
-
-`plugins/point/config.ts`
-
-```ts:line-numbers=1
-import { importPath } from 'alemonjs'
-// 得到当前位置的路径以及目录名
-export const app = importPath(import.meta.url)
-```
-
 - 调整图片对象并封装
 
 `plugins/point/api.ts`
 
 ```ts:line-numbers=1
-import { createImage } from 'alemonjs'
-import { app } from './config.js'
+import { createImage, importPath } from 'alemonjs'
+const app = importPath(import.meta.url)
 // 绑定@的位置,如果你的应用未来放置在plugins下，并务必这么做
 const Image = createImage(app.cwd())
 /**
