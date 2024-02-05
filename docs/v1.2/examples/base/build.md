@@ -63,8 +63,8 @@ npm run dev # npx afloat dev
 `alemon.login.ts`需要配置才能正确登录
 
 ```typescript:line-numbers=1
-import { ALoginOptions } from 'alemonjs'
-export default ALoginOptions({
+import { defineConfig } from 'alemonjs'
+export default defineConfig({
   // 配置名 test
   test: {
     // qq平台配置

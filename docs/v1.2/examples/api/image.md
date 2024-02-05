@@ -111,47 +111,6 @@ const img = await Image.screenshot()
 <script></script>
 ```
 
-## 扩展标签
-
-有时候我们需要在 html 中放入一些请求头部
-
-你可以在 vue 中新增`head`标签来达到效果
-
-```vue:line-numbers=1 {2}
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-</head>
-```
-
-上面的 vue 文件引入了 bootstrap5 ,你可以在`template`中使用
-
-```vue:line-numbers=1
-<template>
-  <div id="app">
-    <div class="card">
-      卡片
-    </div>
-  </div>
-</template>
-```
-
-- 特别注意
-
-```vue
-<style scoped></style>
-<!-- 正确写法: style被识别,而后续的被head携带  -->
-<head>
-  <style src="https://alemonjs.com"></style>
-</head>
-```
-
-```vue
-<!-- 错误写法: style缺失,而head却携带style -->
-<head>
-  <style></style>
-</head>
-```
-
 ## 截图封装
 
 - 调整图片对象并封装
@@ -162,7 +121,9 @@ const img = await Image.screenshot()
 import { createImage, importPath } from 'alemonjs'
 const app = importPath(import.meta.url)
 // 绑定@的位置,如果你的应用未来放置在plugins下，并务必这么做
-const Image = createImage(app.cwd())
+const Image = createImage({
+  cwd:app.cwd()
+})
 /**
  * 图片发送
  * @param key 路由
@@ -288,19 +249,61 @@ Vue.createApp({
 
 ## 固定资源
 
-用于解决网络波动造成的长时间无法请求文件问题
+- 自动下载
 
-可把文件下载下来后,放置于`.image` 目录中
+配置后,会将文件下载至于`.image` 目录中
 
-并按格式命名为`应用名-文件名.文件格式`
+```ts
+const Image = createImage({
+  paths: {
+    'bootstrap.min.css':
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css'
+  }
+})
+```
+
+- 资源调用
+
+> ~/ --> .image/
+
+有时候我们需要在 html 中放入一些请求头部
+
+你可以在 vue 中新增`head`标签来达到效果
 
 ```vue
 <head>
-  <script src="~/name-plugin-bootstrap5.js"></script>
+  <link href="~/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 ```
 
-> ~/ --> .image/
+上面的 vue 文件引入了 bootstrap5 ,你可以在`template`中使用
+
+```vue:line-numbers=1
+<template>
+  <div id="app">
+    <div class="card">
+      卡片
+    </div>
+  </div>
+</template>
+```
+
+- 特别注意
+
+```vue
+<style scoped></style>
+<!-- 正确写法: style被识别,而后续的被head携带  -->
+<head>
+  <style src="https://alemonjs.com"></style>
+</head>
+```
+
+```vue
+<!-- 错误写法: style缺失,而head却携带style -->
+<head>
+  <style></style>
+</head>
+```
 
 ## 调用参数
 
@@ -320,6 +323,12 @@ cance?: boolean;
 // 得到解析后的html字符串
 getHtml: () => string;
 ```
+
+## 下载失败
+
+访问 `https://registry.npmmirror.com/vue/3/files/dist/vue.global.js`
+
+并把内容下载下来，放置在 `.image/global.js`
 
 ## 热开发调试
 
@@ -342,15 +351,3 @@ http://127.0.0.1:7070/index.vue
 此外,推荐调整设备大小为 `800*960`
 
 因为这是机器人默认的浏览器大小
-
-## 常见问题
-
-- 自动下载失败
-
-访问 `https://unpkg.com/vue@3/dist/vue.global.js`
-
-并把内容下载下来，放置在 `.image/global.js`
-
-`alemonjs/resources/index.html` 将默认加载该文件
-
-其他文件同理

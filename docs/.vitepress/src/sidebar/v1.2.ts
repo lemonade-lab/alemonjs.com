@@ -40,7 +40,8 @@ export default [
     items: [
       { text: '功能预览', link: '/v1.2/examples/core/function' },
       { text: '消息控制', link: '/v1.2/examples/core/controller' },
-      { text: '平台开发', link: '/v1.2/examples/core/platforms' }
+      { text: '平台开发', link: '/v1.2/examples/core/platforms' },
+      { text: '构建工具', link: '/v1.2/examples/core/afloat' },
     ]
   }
 ] as DefaultTheme.SidebarItem[]
