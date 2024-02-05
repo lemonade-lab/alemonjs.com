@@ -250,22 +250,24 @@ npx afloat build
     "mysql2": "^3.6.2",
     "sequelize": "^6.33.0"
   },
-  "download": {
-    "gitee": {
-      "arg": "--depth=1 -b build",
-      "url": "https://gitee.com/ningmengchongshui/xiuxian-plugin.git"
+  "alemonjs": {
+    "download": {
+      "github": {
+        "arg": "--depth=1 -b build",
+        "url": "https://github.com/ningmengchongshui/xiuxian-plugin.git"
+      }
+    },
+    "env": {
+      "ALEMONJS_REDIS_HOST": "localhost",
+      "ALEMONJS_REDIS_PORT": 6379,
+      "ALEMONJS_REDIS_PASSWORD": "",
+      "ALEMONJS_REDIS_DB": 3,
+      "ALEMONJS_MYSQL_DATABASE": "xiuxian",
+      "ALEMONJS_MYSQL_USER": "root",
+      "ALEMONJS_MYSQL_PASSWORD": "",
+      "ALEMONJS_MYSQL_HOST": "localhost",
+      "ALEMONJS_MYSQL_PROT": 3306
     }
-  },
-  "env": {
-    "ALEMONJS_REDIS_HOST": "localhost",
-    "ALEMONJS_REDIS_PORT": 6379,
-    "ALEMONJS_REDIS_PASSWORD": "",
-    "ALEMONJS_REDIS_DB": 3,
-    "ALEMONJS_MYSQL_DATABASE": "xiuxian",
-    "ALEMONJS_MYSQL_USER": "root",
-    "ALEMONJS_MYSQL_PASSWORD": "",
-    "ALEMONJS_MYSQL_HOST": "localhost",
-    "ALEMONJS_MYSQL_PROT": 3306
   }
 }
 ```

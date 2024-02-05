@@ -85,9 +85,9 @@ const uData = await c.set('guild_id', '1234567890').Member.information()
 
 > 发送前需要进行平台判断并构造数据格式
 
-## QQ
+### QQ
 
-### 卡片
+#### 卡片
 
 ```ts:line-numbers=1
 if (e.platform == 'qq') {
@@ -114,7 +114,7 @@ if (e.platform == 'qq') {
 }
 ```
 
-### 表态
+#### 表态
 
 ```ts:line-numbers=1
 if (e.platform == 'qq') {
@@ -130,9 +130,9 @@ if (e.platform == 'qq') {
 }
 ```
 
-## VILLA
+### VILLA
 
-### 卡片
+#### 卡片
 
 别野中,对任意数组形式的按钮进行自动排序
 

@@ -6,16 +6,6 @@ outline: deep
 
 ## 基础示例
 
-- 加载 vue.global.js
-
-访问 `https://unpkg.com/vue@3/dist/vue.global.js`
-
-并把内容下载下来，放置在 `.image/global.js`
-
-`alemonjs/resources/index.html` 将默认加载该文件
-
-你可以选择其他 vue 版本
-
 > 如果你并不熟悉 vue3,[请点击阅读 vue 文档](https://cn.vuejs.org/)
 
 - 新建 vue 文件
@@ -60,7 +50,7 @@ Vue.createApp({
   </div>
 </template>
 
-<style>
+<style scoped>
 body,html {
   margin: 0;
 }
@@ -102,7 +92,7 @@ const img = await Image.screenshot()
 
 `<template> </template>`
 
-`<style> </style>`
+`<style> </style>` | `<style scoped> </style>`
 
 `<head> </head>`
 
@@ -111,7 +101,7 @@ const img = await Image.screenshot()
 > 以上几个标签不可增加任何修饰符,且是唯一的
 
 ```vue
-<!-- 错误写法：增加修饰符 -->
+<!-- 错误写法：增加修饰 -->
 <style src="url"></style>
 ```
 
@@ -148,21 +138,17 @@ const img = await Image.screenshot()
 - 特别注意
 
 ```vue
-<style></style>
+<style scoped></style>
 <!-- 正确写法: style被识别,而后续的被head携带  -->
 <head>
-  <style>
-    
-  </style>
+  <style src="https://alemonjs.com"></style>
 </head>
 ```
 
 ```vue
 <!-- 错误写法: style缺失,而head却携带style -->
 <head>
-  <style>
-    
-  </style>
+  <style></style>
 </head>
 ```
 
@@ -219,7 +205,7 @@ e.reply(img)
 ```
 
 ```vue:line-numbers=1
-<style></style>
+<style scoped></style>
 <head>
    <style src="@/css/help.css"></style>
 </head>
@@ -238,7 +224,7 @@ e.reply(img)
   </div>
 </template>
 
-<style>
+<style scoped>
 .help {
   background-image: url('@/img/help.jpg');
 }
@@ -356,3 +342,15 @@ http://127.0.0.1:7070/index.vue
 此外,推荐调整设备大小为 `800*960`
 
 因为这是机器人默认的浏览器大小
+
+## 常见问题
+
+- 自动下载失败
+
+访问 `https://unpkg.com/vue@3/dist/vue.global.js`
+
+并把内容下载下来，放置在 `.image/global.js`
+
+`alemonjs/resources/index.html` 将默认加载该文件
+
+其他文件同理
