@@ -8,10 +8,11 @@ outline: deep
 
 继承写法可使用多个配置函数
 
-```ts
-import { createApp, AMessage, APlugin } from 'alemonjs'
+`./apps.ts`
 
-class word extends APlugin {
+```ts
+import { AMessage, APlugin } from 'alemonjs'
+export class word extends APlugin {
   constructor() {
     super({
       rule: [
@@ -26,9 +27,16 @@ class word extends APlugin {
     e.reply('你好')
   }
 }
+```
+
+```ts
+import { createApp, AMessage, APlugin } from 'alemonjs'
+import * as apps from './apps.js'
 // 创建应用
 createApp(import.meta.url)
-  .use({ word })
+  //使用模板
+  .use(apps)
+  // 挂载
   .mount()
 ```
 

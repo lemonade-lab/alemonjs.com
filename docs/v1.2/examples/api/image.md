@@ -22,16 +22,28 @@ outline: deep
 
 `/public/pages/index.vue`
 
+> 非常推荐使用 vscode 进行编程
+
+> 安装插件`Vue Language Features (Volar)`
+
+> 它可以为你提供 vue 语法提示
+
 > 注意：不能使用组件写法
 
 ```vue:line-numbers=1
 <script>
+// 原js写法
 Vue.createApp({
   setup: () => {
-    const { ref } = Vue
+     const { ref } = Vue
+     const bt = ref(false)
+     /**
+      * 这里可以写你的逻辑
+      */
     return {
+      bt,
       // BOT_DATA  是上流中对机器人实例化image对象时的dir
-      DIR: BOT_DIR,
+      dir: BOT_DIR,
       // BOT_DATA  是上流中对机器人传入的data进行预留
       data: BOT_DATA
     }
@@ -40,7 +52,7 @@ Vue.createApp({
 </script>
 
 <template>
-  <!-- 必须绑定id,详细请看vue文档中关于cdn的写法 -->
+  <!-- 必须绑定id,详细请看vue文档中关于html的写法 -->
   <div id="app">
     <div v-for="val of data" :key="val">
       {{ val }}
@@ -54,12 +66,6 @@ body,html {
 }
 </style>
 ```
-
-非常推荐使用 vscode 进行编程
-
-安装插件`Vue Language Features (Volar)`
-
-它可以为你提供 vue 语法提示
 
 - 调用示例 1
 
@@ -85,7 +91,10 @@ Image.create({
   data: ['1', '2', '3']
 })
 const img = await Image.screenshot()
+// e.reply(img)
 ```
+
+- 特别注意
 
 该工具并非像 vite 那样能完美渲染 vue 文件
 
@@ -99,9 +108,18 @@ const img = await Image.screenshot()
 
 `<script> </script>`
 
-> 以上几个标签不可增加任何修饰符
+> 以上几个标签不可增加任何修饰符,且是唯一的
 
-> 比如 `<style src="url"> </style>`
+```vue
+<!-- 错误写法：增加修饰符 -->
+<style src="url"></style>
+```
+
+```vue
+<!-- 错误写法：script不唯一 -->
+<script></script>
+<script></script>
+```
 
 ## 扩展标签
 
@@ -125,7 +143,27 @@ const img = await Image.screenshot()
     </div>
   </div>
 </template>
+```
 
+- 特别注意
+
+```vue
+<style></style>
+<!-- 正确写法: style被识别,而后续的被head携带  -->
+<head>
+  <style>
+    
+  </style>
+</head>
+```
+
+```vue
+<!-- 错误写法: style缺失,而head却携带style -->
+<head>
+  <style>
+    
+  </style>
+</head>
 ```
 
 ## 截图封装
@@ -181,6 +219,7 @@ e.reply(img)
 ```
 
 ```vue:line-numbers=1
+<style></style>
 <head>
    <style src="@/css/help.css"></style>
 </head>
@@ -204,6 +243,61 @@ e.reply(img)
   background-image: url('@/img/help.jpg');
 }
 </style>
+```
+
+- 特别注意
+
+假如 data 里有
+
+```ts
+const data = {
+  url: '@/img/help.jpg'
+}
+```
+
+```vue:line-numbers=1
+<script>
+Vue.createApp({
+  setup: () => {
+    return {
+      data: BOT_DATA
+    }
+  }
+}).mount('#app')
+</script>
+
+<template>
+   <div id="app" class="help">
+    <!-- 错误写法： url只能是完整的地址 -->
+    <img :src="data.url" />
+  </div>
+</template>
+```
+
+```ts
+const data = {
+  url: '/img/help.jpg'
+}
+```
+
+```vue:line-numbers=1
+<script>
+Vue.createApp({
+  setup: () => {
+    return {
+      dir: BOT_DIR,
+      data: BOT_DATA
+    }
+  }
+}).mount('#app')
+</script>
+
+<template>
+   <div id="app" class="help">
+    <!-- 正确写法：项目地址+文件地址 -->
+    <img :src="dir + data.url" />
+  </div>
+</template>
 ```
 
 ## 固定资源

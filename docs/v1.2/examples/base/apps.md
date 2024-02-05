@@ -8,31 +8,45 @@ outline: deep
 
 继承写法可使用多个配置函数
 
-```ts:line-numbers=1
-import { createApp, AMessage, APlugin } from 'alemonjs'
-// 模板继承
-class word extends APlugin {
+`./apps.ts`
+
+```ts
+import { AEvent, APlugin } from 'alemonjs'
+export class word extends APlugin {
   constructor() {
     super({
       rule: [
         {
           reg: /^\/你好$/,
-          fnc: 'post',
+          fnc: 'post'
         }
       ]
     })
   }
-  async post(e: AMessage) {
+  async post(e: AEvent) {
     e.reply('你好')
   }
 }
+```
+
+`./main.ts`
+
+```ts
+import { createApp, AEvent, APlugin } from 'alemonjs'
+import * as apps from './apps.js'
 // 创建应用
-createApp(import.meta.url).use({ word }).mount()
+createApp(import.meta.url)
+  //使用模板
+  .use(apps)
+  // 挂载
+  .mount()
 ```
 
 ## 回调响应
 
 比继承优先的回调写法
+
+`./main.ts`
 
 ```ts:line-numbers=1
 import { createApp, APlugin } from 'alemonjs'
