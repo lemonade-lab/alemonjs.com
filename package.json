@@ -12,5 +12,8 @@
     "build": "vitepress build docs",
     "pre": "vitepress preview docs",
     "format": "npx prettier --write ."
+  },
+  "devDependencies": {
+    "sass": "^1.71.1"
   }
 }

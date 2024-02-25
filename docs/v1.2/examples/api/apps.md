@@ -179,9 +179,9 @@ npx afloat dev
 export default defineAfloat({
   nodemon: {
     env: {
-      // 平台原始数据
+      // 平台原始数据 callback data
       ALEMONJS_EVENT: 'dev',
-      // 构造后 event 对象
+      // 构造后事件对象 e:AEvent
       ALEMONJS_AEvent: 'dev'
     }
   }
@@ -189,6 +189,18 @@ export default defineAfloat({
 ```
 
 > `afloat`启动时会自动读取本地文件`.env`
+
+打印原始数据
+
+```ts
+ALEMONJS_EVENT = 'dev'
+```
+
+打印事件对象
+
+```ts
+ALEMONJS_AEvent = 'dev'
+```
 
 打印所有 api 请求后反馈的结果
 
@@ -210,6 +222,40 @@ VILLA_API_DATA = 'dev'
 ```ts
 KOOK_API_CONFIG = 'dev'
 KOOK_API_DATA = 'dev'
+```
+
+打印 ws 数据流
+
+```ts
+DISCORD_WS = 'dev'
+NTQQ_WS = 'dev'
+VILLA_WS = 'dev'
+KOOK_WS = 'dev'
+```
+
+打印指令集
+
+```ts
+ALEMONJS_JSON = 'dev'
+```
+
+取消 log 前缀
+
+```ts
+ALEMONJS_LOG = 'false'
+```
+
+转为生产环境
+
+```ts
+NODE_ENV = 'production'
+```
+
+图片框架默认 js 文件下载地址
+
+```ts
+ALEMONJS_IMAGE_GLOVAL_JS =
+  'https://registry.npmmirror.com/vue/3/files/dist/vue.global.j'
 ```
 
 ## 打包成插件
@@ -235,21 +281,10 @@ npx afloat build
 
 ## 插件导出
 
-`export.json`
+`package.json`
 
 ```json
 {
-  "name": "xiuxian",
-  "version": "1.0.0",
-  "description": "说明",
-  "author": "作者",
-  "dependencies": {
-    "axios": "^1.6.5",
-    "bullmq": "^4.12.7",
-    "ioredis": "^5.3.2",
-    "mysql2": "^3.6.2",
-    "sequelize": "^6.33.0"
-  },
   "alemonjs": {
     "download": {
       "github": {
