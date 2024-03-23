@@ -159,21 +159,6 @@ export interface NtQQOptions {
  */
 ```
 
-```ts{3,5,7,9} [VILLA]
-export interface VillaOptions {
-  // 机器人编号(必填)
-  bot_id: string
-  // 密钥(必填)
-  secret: string
-  // 公匙(必填)
-  pub_key: string
-  // 测试别野号(必填)
-  villa_id: number
-  // 主人编号
-  masterID?: string
-}
-```
-
 ```ts{3} [DISCORD]
 export interface DISOCRDOptions {
   // 钥匙(必填)

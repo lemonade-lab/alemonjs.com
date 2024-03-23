@@ -132,48 +132,6 @@ if (e.platform == 'qq') {
 }
 ```
 
-## VILLA
-
-### 卡片
-
-别野中,对任意数组形式的按钮进行自动排序
-
-```ts
-import { StringifyType, ButtonType } from 'alemonjs'
-```
-
-```ts
-const data: string[] = ['1', '456', '15', '5']
-const msg: string[] = ['[附近宝物]']
-if (e.platform == 'villa') {
-  let x = 1
-  let y = 99
-  const arr: ButtonType[] = []
-  for (const item of data) {
-    x++
-    y--
-    arr.push({
-      id: `${x}${y}`,
-      text: item.name,
-      type: 1,
-      c_type: 2,
-      input: `/拾取${item.id}`,
-      need_callback: false,
-      extra: 'shiqu'
-    })
-  }
-  e.Message().card([
-    {
-      content: {
-        text: msg[0]
-      },
-      panel: ClientVILLA.buttonAutomaticArrangement(arr)
-    }
-  ] as StringifyType[])
-  return
-}
-```
-
 ## 主动控制器
 
 > 不推荐使用
@@ -195,11 +153,11 @@ if (e.platform == 'villa') {
 ```ts
 import { Controller } from 'alemonjs'
 
-// 绑定 e 等同  villax下的 e.Message()
-// const Message = Controller('villa')(e).Message
+// 绑定 e 等同  qq下的 e.Message()
+// const Message = Controller('qq')(e).Message
 
 // 同时参数必要参数
-const Message = Controller('villa')({}).Message()
+const Message = Controller('qq')({}).Message()
 
 // 立即回复对方消息
 Message.reply('你好')
@@ -210,10 +168,10 @@ Message.reply('你好')
 ```ts
 import { Controller } from 'alemonjs'
 
-// 绑定 e 等同  villax下的 e.Member()
-// const Member = Controller('villa')(e).Member
+// 绑定 e 等同  qq下的 e.Member()
+// const Member = Controller('qq')(e).Member
 
-const Member = Controller('villa')({}).Member()
+const Member = Controller('qq')({}).Member()
 
 // 禁言一分钟
 Member.Message.mute()

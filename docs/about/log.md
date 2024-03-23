@@ -37,7 +37,6 @@ outline: deep
 - 删除 应用获取指令信息 json
 - 增加 reply 中间数据回传
 - 修复 ntqq 文件上传错误
-- 修复 villa 鉴权数据错误
 - 同步 dc 平台接口名为官网接口名
 
 :::

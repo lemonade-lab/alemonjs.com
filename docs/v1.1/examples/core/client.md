@@ -71,18 +71,6 @@ import { ClientKOOK } from 'alemonjs'
 
 [ClientKOOK 源码查看](https://github.com/ningmengchongshui/alemonjs/blob/main/src/kook/sdk/)
 
-### ClientVILLA
-
-```ts
-import { ClientVILLA } from 'alemonjs'
-```
-
-> 接口随平台同步更新
-
-> 请直接翻阅源码查看参数
-
-[ClientVILLA 源码查看](https://github.com/ningmengchongshui/alemonjs/blob/main/src/villa/sdk/)
-
 ### ClientNTQQ
 
 ```ts

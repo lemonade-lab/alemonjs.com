@@ -191,7 +191,6 @@ export default defineAfloat({
       ALEMONJS_MESSAGE: 'dev'
       // discord API
       // kook API
-      // villa API
       // qq API
       // ntqq API
     }

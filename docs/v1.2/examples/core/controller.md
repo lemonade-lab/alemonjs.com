@@ -130,48 +130,6 @@ if (e.platform == 'qq') {
 }
 ```
 
-### VILLA
-
-#### 卡片
-
-别野中,对任意数组形式的按钮进行自动排序
-
-```ts:line-numbers=1
-import { StringifyType, ButtonType } from 'alemonjs'
-```
-
-```ts:line-numbers=1
-const data: string[] = ['1', '456', '15', '5']
-const msg: string[] = ['[附近宝物]']
-if (e.platform == 'villa') {
-  let x = 1
-  let y = 99
-  const arr: ButtonType[] = []
-  for (const item of data) {
-    x++
-    y--
-    arr.push({
-      id: `${x}${y}`,
-      text: item.name,
-      type: 1,
-      c_type: 2,
-      input: `/拾取${item.id}`,
-      need_callback: false,
-      extra: 'shiqu'
-    })
-  }
-  c.Message().card([
-    {
-      content: {
-        text: msg[0]
-      },
-      panel: ClientVILLA.buttonAutomaticArrangement(arr)
-    }
-  ] as StringifyType[])
-  return
-}
-```
-
 ## 主动控制器
 
 > 不推荐使用
