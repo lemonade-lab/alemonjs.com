@@ -17,6 +17,7 @@ export default [
     items: [
       { text: '应用开发', link: '/v1.2/examples/api/apps' },
       { text: '基础消息', link: '/v1.2/examples/api/message' },
+      { text: '图片制作', link: '/v1.2/examples/api/image' },
       { text: '特殊机制', link: '/v1.2/examples/api/mechanism' }
     ]
   },
