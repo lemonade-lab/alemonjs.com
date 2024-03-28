@@ -36,12 +36,6 @@ npx afloat build
 npx afloat build
 ```
 
-- 图片热开发
-
-```sh
-npx afloat image
-```
-
 - 自动加载 `.env` 环境文件
 
 ## PM2

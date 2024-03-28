@@ -11,7 +11,6 @@ outline: deep
 ## 目录结构
 
 ```typescript
-|-- .image/      图片缓存
 |-- .vscode/     代码片段
 |-- src/    工程目录
     |--    api/         开发接口
