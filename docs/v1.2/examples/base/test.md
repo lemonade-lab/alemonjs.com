@@ -12,9 +12,11 @@ outline: deep
 
 ```typescript
 |-- .vscode/     代码片段
+|-- public/      资源文件
 |-- src/    工程目录
     |--    api/         开发接口
     |--    apps/        开发应用
+    |--    image/       图片制作
     |--    utils/       工具类
     |--    rules.ts     应用导出
     |--    main.ts      入口

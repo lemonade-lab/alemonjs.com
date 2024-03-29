@@ -1,5 +1,10 @@
 node_modules
 dist
+
 cache
 
 stats.html
+
+# npm 
+
+yarn.lock
