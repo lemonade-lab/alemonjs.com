@@ -10,7 +10,6 @@ outline: deep
 | [create-alemonjs] | [![create-alemonjs-status]][create-alemonjs-package] | 模板创建脚手架  |
 | [afloat]          | [![afloat-status]][afloat-package]                   | 热开发&打包工具 |
 | [alemon-ffmpeg]   | [![alemon-ffmpeg-status]][alemon-ffmpeg-package]     | ffmpeg 自动下载 |
-| [alemon-onebot]   | [![alemon-onebot-status]][alemon-onebot-package]     | OneBot 协议平台 |
 
 [alemonjs]: https://github.com/ningmengchongshui/alemonjs
 [alemonjs-status]: https://img.shields.io/npm/v/alemonjs.svg
@@ -33,12 +32,6 @@ outline: deep
 [alemon-ffmpeg]: https://github.com/kongxiangyiren/alemon-ffmpeg
 [alemon-ffmpeg-status]: https://img.shields.io/npm/v/alemon-ffmpeg.svg
 [alemon-ffmpeg-package]: https://www.npmjs.com/package/alemon-ffmpeg
-
->
-
-[alemon-onebot]: https://github.com/ningmengchongshui/alemonjs/tree/alemon-onebot
-[alemon-onebot-status]: https://img.shields.io/npm/v/alemon-onebot.svg
-[alemon-onebot-package]: https://www.npmjs.com/package/alemon-onebot
 
 ## 启动配置
 
