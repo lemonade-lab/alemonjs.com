@@ -9,10 +9,6 @@ outline: deep
 ```typescript
 export interface AlemonOptions {
   /**
-   * 配置
-   */
-  [key: string]: any
-  /**
    * 平台
    */
   platforms?: PlatformsItemType[]
@@ -21,8 +17,7 @@ export interface AlemonOptions {
    */
   login?: LoginOptions
   /**
-   * login 启动文件(相对路径)
-   * 默认 alemon.login.ts
+   * 指定读取登录ts/js文件
    */
   loginDir?: string
   /**
@@ -54,26 +49,7 @@ export interface AlemonOptions {
      * 插件目录
      */
     directory?: string
-    /**
-     * 插件名匹配规则
-     */
-    RegexOpen?: RegExp
-    /**
-     * 插件名关闭规则
-     */
-    RegexClose?: RegExp
-    /**
-     * 插件入口
-     * 默认index
-     * type='ts'
-     * 即 index.ts
-     */
-    main?: string
-    /**
-     * 入口文件类型
-     */
-    type?: 'ts' | 'js' | 'stript'
-  }
+  } & ApplicationProcessingOpsion
   /**
    * 事件屏蔽
    */
@@ -83,23 +59,9 @@ export interface AlemonOptions {
    */
   imageStorage?: (val: Buffer) => Promise<string | false>
   /**
-   * dotenv
-   * 默认读取alemon.env文件
-   */
-  env?: DotenvConfigOptions
-  /**
    * 服务器
    */
-  server?: {
-    /**
-     * 应用端口
-     */
-    port?: number
-    /**
-     * 中间件
-     */
-    middleware?: any[]
-  }
+  server?: ServerOptions
   /**
    * 服务配置
    */
@@ -113,6 +75,10 @@ export interface AlemonOptions {
    * puppeteer配置
    */
   puppeteer?: PuppeteerLaunchOptions
+  /**
+   * env
+   */
+  env?: DotenvConfigOptions
   /**
    * 系统状态-邮箱订阅
    */
@@ -165,6 +131,47 @@ export interface EmailOptions {
     }
   }
   to: string
+}
+```
+
+```typescript [plugin]
+export interface ApplicationProcessingOpsion {
+  /**
+   * 根目录
+   */
+  dir?: string
+  /**
+   * 主文件
+   */
+  main?: string
+  /**
+   * 主文件类型
+   */
+  type?: ApplicationProcessKeyScriptType
+  /**
+   * 匹配正则
+   */
+  openRegex?: RegExp
+  /**
+   * 不匹配正则
+   */
+  closeRegex?: RegExp | undefined
+  /**
+   * 指令json路由
+   */
+  route?: string
+  /**
+   * 是否生成json
+   */
+  regex?: boolean
+  /**
+   * 消息执行间隔时间
+   */
+  intervalTime?: number
+  /**
+   * 事件屏蔽器
+   */
+  event?: string[]
 }
 ```
 

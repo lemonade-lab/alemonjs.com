@@ -81,3 +81,15 @@ e.reply(e.segment.qrcode('https://www.baidu.com'))
 ```typescript:line-numbers=1
 e.reply(e.segment.http('https://api.xingzhige.com/API/yshl/'))
 ```
+
+### 按钮消息
+
+```ts
+import { Controllers } from 'alemonjs'
+```
+
+```ts
+const c = Controllers(e)
+// 消息控制器
+c.message.reply('', [{ label: '打招呼', value: '/你好' }])
+```

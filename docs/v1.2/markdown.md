@@ -18,7 +18,9 @@ outline: deep
 注意 Node 版本应不低于 V16.14.0 且不高于 18.18.2
 :::
 
-> [点击前往下载 windows node 版本管理](https://github.com/coreybutler/nvm-windows/releases)
+> [点击前往下载 node windows 版本管理](https://github.com/coreybutler/nvm-windows/releases)
+
+> [点击前往拉取 node mac 版本管理](https://github.com/nvm-sh/nvm)
 
 ## 平台账户
 
@@ -27,8 +29,6 @@ outline: deep
 请提前申请机器人账户
 
 [QQ 开放平台](https://q.qq.com/#/)
-
-[Miyoushe 开放平台](https://open.miyoushe.com/#/login)
 
 [KOOK 平台](https://developer.kookapp.cn/doc/)
 
@@ -40,32 +40,14 @@ outline: deep
 
 [MDN Web Docs](https://developer.mozilla.org/)
 
-[Vue.js ](https://cn.vuejs.org/)
-
-[Nuxt3.js](https://nuxt.com.cn/docs/)
+[React](https://react.docschina.org/)
 
 [Vite](https://cn.vitejs.dev/)
 
-[Vant4](https://vant-ui.github.io/vant/)
-
-[Art-Template](https://aui.github.io/art-template/)
-
 [Axios](https://www.axios-http.cn/)
-
-[Prettier](https://www.prettier.cn/)
-
-[Less](https://less.bootcss.com/)
-
-[Sass](https://www.sass.hk/)
-
-[Bootcss5](https://v5.bootcss.com/)
 
 [Sequelize](https://www.sequelize.cn/)
 
 [KOA](https://koa.bootcss.com/)
-
-[Express](https://www.expressjs.com.cn/)
-
-[Electron](https://www.electronjs.org/zh/)
 
 [PM2](https://pm2.keymetrics.io/)

@@ -4,8 +4,6 @@ outline: deep
 
 # 事件对象
 
-## 常见属性
-
 #### 事件相关
 
 ```typescript

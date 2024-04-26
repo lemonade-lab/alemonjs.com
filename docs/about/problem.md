@@ -28,7 +28,7 @@ rm -rf ~/.pm2
 node -v #查看版本
 ```
 
-[点击前往下载 node 版本管理](https://github.com/coreybutler/nvm-windows/releases)
+[点击前往下载 node windows 版本管理](https://github.com/coreybutler/nvm-windows/releases)
 
 打开`Assets`并点击安装`nvm-setup.exe`
 

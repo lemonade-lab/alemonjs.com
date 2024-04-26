@@ -4,7 +4,7 @@ title: 阿柠檬开发框架
 layout: home
 
 hero:
-  name: '阿柠檬开发框架'
+  name: '阿柠檬'
   text: '构建属于你的机器人'
   tagline: 基于 JavaScript 所构建的跨平台开发框架
   image:

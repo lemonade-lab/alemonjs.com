@@ -40,11 +40,8 @@ const c = Controllers(e)
 // 立即回复对方消息
 c.Message.reply('你好')
 
-// 引用回复对方
-c.Message.reply('你好', { quote: e.msg_id })
-
-// 私聊对方
-c.Message.reply('你好', { open_id: e.open_id })
+// 发送按钮
+c.Message.reply('', [{ label: '打招呼', value: '/你好' }])
 
 // 立即撤回对方消息
 c.Message.withdraw()
@@ -57,8 +54,16 @@ c.set('channel_id', '1234567890').Message.reply(e.segment.at(e.user_id))
 
 // 在其他频道的某个子频道艾特该用户
 c.set('guild_id', '1234567890')
-  .set('1234567890')
   .Message.reply(e.segment.at(e.user_id))
+
+// 引用回复对方
+c.set('quote', e.msg_id)
+  .Message.reply(e.segment.at(e.user_id))
+
+// 私聊对方
+c.set('open_id', e.open_id)
+  .Message.reply('你好')
+
 ```
 
 ### 用户绑定

@@ -27,7 +27,7 @@ npx afloat pm2 start
 - 调用 nodemon 进行开发环境的热更新
 
 ```sh
-npx afloat build
+npx afloat dev
 ```
 
 - 调用 rollup 进行打包
@@ -84,17 +84,6 @@ rollup 是一个打包工具,默认会将`main.ts`文件打包至于`dist/main.j
 npx afloat build
 ```
 
-打包后,默认复制 public 和.image 文件夹到 dist 目录下
-
-```ts
-import { defineAfloat } from 'afloat'
-export default defineAfloat({
-  target: {
-    directorys: ['.image', 'public']
-  }
-})
-```
-
 此外,你可以通过进行简单的配置 rollup 的插件
 
 ```ts
@@ -118,9 +107,3 @@ export default defineAfloat({
   }
 })
 ```
-
-## Image
-
-工具会调用`alemonjs`的`createImage`方法
-
-并使用`koa`启动一个服务,你可以借此调节图片消息

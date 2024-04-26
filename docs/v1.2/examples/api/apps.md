@@ -153,6 +153,10 @@ npm install afloat@latest
 pnpm install afloat@latest
 ```
 
+```sh [yarn]
+yarn add afloat@latest
+```
+
 :::
 
 `afloat.config.ts`
@@ -251,14 +255,7 @@ ALEMONJS_LOG = 'false'
 NODE_ENV = 'production'
 ```
 
-图片框架默认 js 文件下载地址
-
-```ts
-ALEMONJS_IMAGE_GLOVAL_JS =
-  'https://registry.npmmirror.com/vue/3/files/dist/vue.global.j'
-```
-
-## 打包成插件
+## 打包
 
 `afloat.config.ts`
 
@@ -266,7 +263,7 @@ ALEMONJS_IMAGE_GLOVAL_JS =
 import { defineAfloat } from 'afloat'
 export default defineAfloat({
   rollup: {
-    input: 'dist/main.js'  // 默认
+    input: 'main.js'  // 默认
   }
 })
 ```
@@ -274,10 +271,6 @@ export default defineAfloat({
 ```sh
 npx afloat build
 ```
-
-得到`dist/main.js`和`dist/package.json`
-
-> 放置于 plugins 目录下
 
 ## 插件导出
 
@@ -289,7 +282,7 @@ npx afloat build
     "download": {
       "github": {
         "arg": "--depth=1 -b build",
-        "url": "https://github.com/ningmengchongshui/xiuxian-plugin.git"
+        "url": "https://github.com/ningmengchongshui/xiuxian-bot.git"
       }
     },
     "env": {

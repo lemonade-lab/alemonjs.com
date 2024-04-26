@@ -18,7 +18,9 @@ outline: deep
 注意 Node 版本应不低于 V16.14.0 且不高于 18.18.2
 :::
 
-> [点击前往下载 windows node 版本管理](https://github.com/coreybutler/nvm-windows/releases)
+> [点击前往下载 node windows 版本管理](https://github.com/coreybutler/nvm-windows/releases)
+
+> [点击前往拉取 node mac 版本管理](https://github.com/nvm-sh/nvm)
 
 ## 平台账户
 
@@ -27,8 +29,6 @@ outline: deep
 请提前申请机器人账户
 
 [QQ 开放平台](https://q.qq.com/#/)
-
-[Miyoushe 开放平台](https://open.miyoushe.com/#/login)
 
 [KOOK 平台](https://developer.kookapp.cn/doc/)
 
