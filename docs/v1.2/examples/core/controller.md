@@ -92,7 +92,7 @@ const uData = await c.set('guild_id', '1234567890').Member.information()
 
 ### QQ
 
-#### 卡片
+#### embed
 
 ```ts:line-numbers=1
 if (e.platform == 'qq') {
@@ -119,7 +119,7 @@ if (e.platform == 'qq') {
 }
 ```
 
-#### 表态
+#### emoji
 
 ```ts:line-numbers=1
 if (e.platform == 'qq') {
@@ -133,6 +133,42 @@ if (e.platform == 'qq') {
 } else {
   e.reply('当前平台不支持emoji')
 }
+```
+
+### NTQQ
+
+#### markdown
+
+模板名称 `多段文本发送`
+
+使用场景 `多个文本场景`
+
+- markdown 源码
+
+```
+{{.text_0}}{{.text_1}}{{.text_2}}{{.text_3}}{{.text_4}}{{.text_5}}{{.text_6}}{{.text_7}}{{.text_8}}{{.text_9}}
+```
+
+- 配置模板参数
+
+模板参数 `text_0`
+
+参数值示例 `[官网]`
+
+模板参数 `text_1`
+
+参数值示例 `(https://q.qq.com/#/)`
+
+- 使用
+
+```ts
+const TemplateId = 'xxx_yyy'
+let p = ClientNTQQ.createTemplate(TemplateId)
+p.button({ text: '叶凡 >> ', label: '点击击杀', value: '/个人信息' })
+const param = p.getParam()
+// 释放
+p = null
+Controllers(e).Message.card([param])
 ```
 
 ## 主动控制器

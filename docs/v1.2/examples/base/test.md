@@ -21,7 +21,6 @@ outline: deep
     |--    rules.ts     应用导出
     |--    main.ts      入口
 |-- .env              热开发环境配置
-|-- afloat.config.ts  热开发配置
 |-- alemon.config.ts  机器运行配置
 |-- alemon.env        环境变量配置
 |-- alemon.login.ts   个人登录配置

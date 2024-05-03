@@ -53,7 +53,7 @@ yarn install # 默认已自动加载依赖
 :::
 
 ```sh
-npm run dev # npx afloat dev
+npx alemonjs
 ```
 
 > 安装或启动遇到[常见问题?](/about/problem)
@@ -84,19 +84,19 @@ export default defineConfig({
 > 示例 1：配置 默认 平台 qq
 
 ```sh
-npm run dev qq
+npx alemonjs qq
 ```
 
 > 示例 2：配置 test 平台 qq
 
 ```sh
-npm run dev test qq
+npx alemonjs qq
 ```
 
 > 示例 3：配置 pro 平台 kook 和 ntqq
 
 ```sh
-npm run dev pro kook ntqq
+npx alemonjs pro kook ntqq
 ```
 
 ## 登录详细
