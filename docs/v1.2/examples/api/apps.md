@@ -73,11 +73,11 @@ class word extends APlugin {
 }
 
 // 创建应用
-createApp(import.meta.url)
+const app =createApp(import.meta.url)
   // 使用 word
-  .use({ word })
+app.use(word)
   // 挂载
-  .mount()
+app.mount()
 ```
 
 执行配置脚本来启动应用
@@ -124,9 +124,11 @@ export * from './apps/word.js'
 ```ts:line-numbers=1
 import { createApp } from 'alemonjs'
 import * as apps from './apps.js'
-createApp(import.meta.url)
-  .use(apps)
-  .mount()
+const app =createApp(import.meta.url)
+for(const key in apps){
+  app.use(apps[key])
+}
+app.mount()
 ```
 
 ## 环境变量
