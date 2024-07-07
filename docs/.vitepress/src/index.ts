@@ -2,6 +2,7 @@ import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 import nav from './nav'
 import sidebarRootV11 from './sidebar/v1.1'
 import sidebarRootV12 from './sidebar/v1.2'
+import sidebarRootV13 from './sidebar/v1.3'
 import sidebarAbout from './sidebar/about'
 export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   themeConfig: {
@@ -10,7 +11,8 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     sidebar: {
       'about': sidebarAbout,
       'v1.1': sidebarRootV11,
-      'v1.2': sidebarRootV12
+      'v1.2': sidebarRootV12,
+      'v1.3': sidebarRootV13
     },
     // outline: 'deep',//侧边栏深度:数字或者deep
     lastUpdatedText: '上次更新',

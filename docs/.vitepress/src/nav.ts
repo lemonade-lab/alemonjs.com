@@ -12,11 +12,15 @@ export default [
     text: '版本',
     items: [
       {
-        text: 'Version-1.2',
+        text: 'V-1.3',
+        link: '/v1.3/markdown'
+      },
+      {
+        text: 'V-1.2',
         link: '/v1.2/markdown'
       },
       {
-        text: 'Version-1.1',
+        text: 'V-1.1',
         link: '/v1.1/markdown'
       }
     ]
