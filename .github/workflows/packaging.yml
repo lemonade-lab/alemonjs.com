@@ -34,7 +34,7 @@ jobs:
 
       - name: push docs
         run: |
-          cd build/
+          cd docs/.vitepress/dist/
           git init
           git config --local user.email "ningmengchongshui@gmail.com"
           git config --local user.name "ningmengchongshui"
