@@ -42,14 +42,13 @@ app.mount()
 import { AEvent, APlugin } from 'alemonjs'
 export class word extends APlugin {
   constructor() {
-    super({
-      rule: [
-        {
-          reg: /^\/你好$/,
-          fnc: 'post'
-        }
-      ]
-    })
+    super()
+    this.rule = [
+      {
+        reg: /^\/你好$/,
+        fnc: this.post.name
+      }
+    ]
   }
   async post(e: AEvent) {
     e.reply('你好')

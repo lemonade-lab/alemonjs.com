@@ -6,18 +6,17 @@ outline: deep
 
 ## 上下文
 
-```typescript:line-numbers=1 {24,34}
+```typescript:line-numbers=1
 import { APlugin, AEvent } from 'alemonjs'
 export class TestConversation extends APlugin {
   constructor() {
-    super({
-      rule: [
-        {
+    super()
+    this.rule = [
+          {
           reg: /^(#|\/)?你好呀$/,
-          fnc: 'startCall'
-        }
+          fnc: this.startCall.name
+          }
       ]
-    })
   }
 
   state: {
@@ -68,18 +67,17 @@ export class TestConversation extends APlugin {
 
 ## 广播
 
-```typescript:line-numbers=1 {17,19,20,21,22,25,26}
+```typescript:line-numbers=1
 import { APlugin , APPS } from 'alemonjs'
 export class apps extends APlugin {
   constructor() {
-    super({
-      rule: [
-        {
-          reg: /^\/你好呀$/,
-          fnc: 'postHello'
-        }
+    super()
+    this.rule = [
+          {
+          reg: /^(#|\/)?你好呀$/,
+          fnc: this.postHello.name
+          }
       ]
-    })
   }
 
   async postHello(e) {
@@ -102,12 +100,12 @@ export class apps extends APlugin {
 
 ## 注销应用
 
-```typescript:line-numbers=1 {25,36,38}
+```typescript:line-numbers=1
 import { APlugin , APPS } from 'alemonjs'
 export class apps extends APlugin {
   constructor() {
-    super({
-      rule: [
+    super()
+       this.rule = [
         {
           reg: /^\/注销$/,
           fnc: 'del'
@@ -117,7 +115,6 @@ export class apps extends APlugin {
           fnc: 'select'
         }
       ]
-    })
   }
 
   async del(e) {

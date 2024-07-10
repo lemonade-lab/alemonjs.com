@@ -227,4 +227,4 @@ import { ClientNTQQ } from 'alemonjs'
 
 > 请直接翻阅源码查看参数
 
-> [ClientQQ 源码查看](https://github.com/ningmengchongshui/alemonjs)
+> [ClientQQ 源码查看](https://github.com/lemonade-lab/alemonjs)

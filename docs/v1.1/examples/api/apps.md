@@ -11,19 +11,19 @@ outline: deep
 | [afloat]          | [![afloat-status]][afloat-package]                   | 热开发&打包工具 |
 | [alemon-ffmpeg]   | [![alemon-ffmpeg-status]][alemon-ffmpeg-package]     | ffmpeg 自动下载 |
 
-[alemonjs]: https://github.com/ningmengchongshui/alemonjs
+[alemonjs]: https://github.com/lemonade-lab/alemonjs
 [alemonjs-status]: https://img.shields.io/npm/v/alemonjs.svg
 [alemonjs-package]: https://www.npmjs.com/package/alemonjs
 
 >
 
-[create-alemonjs]: https://github.com/ningmengchongshui/alemonjs/tree/create-alemonjs
+[create-alemonjs]: https://github.com/lemonade-lab/alemonjs/tree/create-alemonjs
 [create-alemonjs-status]: https://img.shields.io/npm/v/create-alemonjs.svg
 [create-alemonjs-package]: https://www.npmjs.com/package/create-alemonjs
 
 >
 
-[afloat]: https://github.com/ningmengchongshui/alemonjs/tree/afloat
+[afloat]: https://github.com/lemonade-lab/alemonjs/tree/afloat
 [afloat-status]: https://img.shields.io/npm/v/afloat.svg
 [afloat-package]: https://www.npmjs.com/package/afloat
 

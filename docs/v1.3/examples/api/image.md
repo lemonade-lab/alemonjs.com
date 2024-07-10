@@ -276,9 +276,7 @@ import ImageComponent from './views/image.tsx'
 // 别名路径
 export const paths = {
   // 定位自身的 md文件，并获取目录地址
-  '@example': dirname(require('./README.md')),
-  // 或设置其他别名
-  '@resources': join(dirname(require('./README.md')), 'resources')
+  '@example': dirname(require('./README.md'))
 }
 
 // 携带了别名的资源

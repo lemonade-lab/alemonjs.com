@@ -57,7 +57,7 @@ import { ClientQQ } from 'alemonjs'
 
 > 请直接翻阅源码查看参数
 
-> [ClientQQ 源码查看](https://github.com/ningmengchongshui/alemonjs/blob/main/src/qq/sdk/)
+> [ClientQQ 源码查看](https://github.com/lemonade-lab/alemonjs/blob/main/src/qq/sdk/)
 
 ### ClientKOOK
 
@@ -69,7 +69,7 @@ import { ClientKOOK } from 'alemonjs'
 
 > 请直接翻阅源码查看参数
 
-[ClientKOOK 源码查看](https://github.com/ningmengchongshui/alemonjs/blob/main/src/kook/sdk/)
+[ClientKOOK 源码查看](https://github.com/lemonade-lab/alemonjs/blob/main/src/kook/sdk/)
 
 ### ClientNTQQ
 
@@ -81,4 +81,4 @@ import { ClientNTQQ } from 'alemonjs'
 
 > 请直接翻阅源码查看参数
 
-[ClientNTQQ 源码查看](https://github.com/ningmengchongshui/alemonjs/blob/main/src/ntqq/sdk/)
+[ClientNTQQ 源码查看](https://github.com/lemonade-lab/alemonjs/blob/main/src/ntqq/sdk/)

@@ -4,17 +4,15 @@ outline: deep
 
 # 应用开发
 
-- [查看 AlemonJS 接口|函数|声明](https://ningmengchongshui.github.io/alemonjs/)
-
 | Project           | Status                                               | Description    |
 | ----------------- | ---------------------------------------------------- | -------------- |
 | [alemonjs]        | [![alemonjs-status]][alemonjs-package]               | 标准应用解析器 |
 | [create-alemonjs] | [![create-alemonjs-status]][create-alemonjs-package] | 模板创建脚手架 |
 
-[alemonjs]: https://github.com/ningmengchongshui/alemonjs
+[alemonjs]: https://github.com/lemonade-lab/alemonjs
 [alemonjs-status]: https://img.shields.io/npm/v/alemonjs.svg
 [alemonjs-package]: https://www.npmjs.com/package/alemonjs
-[create-alemonjs]: https://github.com/ningmengchongshui/alemonjs/tree/create-alemonjs
+[create-alemonjs]: https://github.com/lemonade-lab/alemonjs/tree/create-alemonjs
 [create-alemonjs-status]: https://img.shields.io/npm/v/create-alemonjs.svg
 [create-alemonjs-package]: https://www.npmjs.com/package/create-alemonjs
 

@@ -19,7 +19,7 @@
 AlemonJS 阿柠檬 跨平台开发框架机器人 文档
 
 ```sh
-git clone -b docs  --depth=1 git@github.com:ningmengchongshui/alemonjs.com.git
+git clone -b docs  --depth=1 git@github.com:lemonade-lab/alemonjs.com.git
 ```
 
 ## Community

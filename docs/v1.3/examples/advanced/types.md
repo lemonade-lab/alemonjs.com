@@ -77,13 +77,10 @@ export const TypingEnum = ['CREATE', 'UPDATE', 'DELETE'] as const
 ```typescript:line-numbers=1
 export class APP extends APlugin {
   constructor() {
-    super({
-      event: 'MESSAGES',
-      typing: 'CREATE'
-      rule: [
-
-      ]
-    })
+    super()
+    this.event = 'MESSAGES'
+    this.typing = 'CREATE'
+    this.rule = []
   }
 }
 ```
@@ -95,13 +92,10 @@ export class APP extends APlugin {
 ```typescript:line-numbers=1
 export class APP extends APlugin {
   constructor() {
-    super({
-      event: 'MESSAGES',
-      typing: 'DELETE'
-      rule: [
-
-      ]
-    })
+    super()
+    this.event = 'MESSAGES'
+    this.typing = 'DELETE'
+    this.rule = []
   }
 }
 ```

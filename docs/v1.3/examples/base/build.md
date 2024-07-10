@@ -24,7 +24,7 @@ pnpm create alemonjs@latest -y
 ```
 
 ```sh [yarn]
-npm install yarn -g
+npm install yarn@1.12.1 -g
 yarn create alemonjs@latest -y
 ```
 
@@ -53,7 +53,7 @@ yarn install # 默认已自动加载依赖
 :::
 
 ```sh
-npx alemonjs
+npm run dev
 ```
 
 > 安装或启动遇到[常见问题?](/about/problem)
@@ -84,35 +84,26 @@ export default defineConfig({
 > 示例 1：配置 默认 平台 qq
 
 ```sh
-npx alemonjs qq
+npm run dev qq
 ```
 
 > 示例 2：配置 test 平台 qq
 
 ```sh
-npx alemonjs qq
+npm run dev qq
 ```
 
 > 示例 3：配置 pro 平台 kook 和 ntqq
 
 ```sh
-npx alemonjs pro kook ntqq
+npm run dev pro kook ntqq
 ```
 
 ## 登录详细
 
 ::: code-group
 
-```ts{3} [KOOK]
-export interface KookOptionsg {
-  // 钥匙(必填)
-  token: string
-  // 主人编号
-  masterID?: string
-}
-```
-
-```ts{3,5,7} [QQ]
+```ts{3,5,7} [QQ(频道)]
 export interface QqGuildOptions {
   // 应用编号(必填)
   appID: string
@@ -127,16 +118,16 @@ export interface QqGuildOptions {
    * 选项必须配置为 true
    */
   isPrivate?: boolean
-  // 事件订阅
+  // 事件订阅（有默认）
   intents?: IntentsEnum[]
-  // 分片
+  // 分片（有默认）
   shard?: number[]
-  // 是否是沙盒环境
+  // 是否是沙盒环境（默认非沙盒）
   sandbox?: boolean
 }
 ```
 
-```ts{3,5,7} [NTQQ]
+```ts{3,5,7} [NTQQ(群)]
 export interface NtQQOptions {
   // 应用编号(必填)
   appID: string
@@ -146,9 +137,9 @@ export interface NtQQOptions {
   secret: string
   // 主人编号
   masterID?: string
-  // 事件订阅
+  // 事件订阅（有默认）
   intents?: NtQQEventsEnum[]
-  // 分片
+  // 分片（有默认）
   shard?: number[]
 }
 /**
@@ -159,13 +150,22 @@ export interface NtQQOptions {
  */
 ```
 
+```ts{3} [KOOK]
+export interface KookOptionsg {
+  // 钥匙(必填)
+  token: string
+  // 主人编号
+  masterID?: string
+}
+```
+
 ```ts{3} [DISCORD]
 export interface DISOCRDOptions {
   // 钥匙(必填)
   token: string
-  // 订阅
+  // 订阅（有默认）
   intent?: IntentsEnum[]
-  // 分片
+  // 分片（有默认）
   shard?: number[]
   // 主人编号
   masterID?: string

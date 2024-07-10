@@ -35,14 +35,13 @@ createApp(import.meta.url).arg(e => [
 // 使用
 export class PluginName extends APlugin {
   constructor() {
-    super({
-      rule: [
+    super()
+    this.rule = [
         {
           reg: /^\/你好$/,
-          fnc: 'postHello'
+          fnc: this.postHello.name
         }
       ]
-    })
   }
 
   async postHello(e, dataApi, control2) {
