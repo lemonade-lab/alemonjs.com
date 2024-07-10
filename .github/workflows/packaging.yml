@@ -22,6 +22,14 @@ jobs:
         id: beijing_time
         run: echo "BEIJING_TIME=$(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
+      - name: set team name
+        id: team_name
+        run: echo "TEAM_NAME='lemonade-lab'" >> $GITHUB_ENV
+
+      - name: set warehouse name
+        id: warehouse_name
+        run: echo "WAREHOUSE_NAME='alemonjs.com'" >> $GITHUB_ENV
+
       - name: delete .npmrc
         run: |
           rm -rf .npmrc
@@ -40,5 +48,5 @@ jobs:
           git config --local user.name "ningmengchongshui"
           git add -A
           git commit -m "自动打包 - ${{ env.BEIJING_TIME }}"
-          git remote add github https://lemonade-lab:${{ secrets.GH_TOKEN }}@github.com/lemonade-lab/docs.git
+          git remote add github https://${{ env.TEAM_NAME }}:${{ secrets.GH_TOKEN }}@github.com/${{ env.TEAM_NAME }}/${{ env.WAREHOUSE_NAME }}.git
           git push github HEAD:docs -f
