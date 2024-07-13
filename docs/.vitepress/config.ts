@@ -5,7 +5,7 @@ export default defineConfig({
   /* 文档配置 */
   title: 'AlemonJS',
   // 前缀
-  base: '/alemon.com',
+  base: '/alemonjs.com',
   // 说明
   description: 'document',
   // 最后更新时间戳
