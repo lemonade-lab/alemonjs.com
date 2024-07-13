@@ -14,10 +14,6 @@ outline: deep
 
 [Node.js](https://nodejs.org) and [Chrome/Chromium](https://www.google.cn/chrome/)/[Edge](https://www.microsoft.com/zh-cn/edge/download?form=MA13DC)
 
-::: warning
-注意 Node 版本应不低于 V16.14.0 且不高于 18.18.2
-:::
-
 > [点击前往下载 node windows 版本管理](https://github.com/coreybutler/nvm-windows/releases)
 
 > [点击前往拉取 node mac 版本管理](https://github.com/nvm-sh/nvm)

@@ -19,9 +19,11 @@
 AlemonJS 阿柠檬 跨平台开发框架机器人 文档
 
 ```sh
-git clone -b docs  --depth=1 git@github.com:lemonade-lab/alemonjs.com.git
+git clone --depth=1 git@github.com:lemonade-lab/alemonjs.com.git
+cd alemonjs.com
 ```
 
-## Community
-
-QQ Group 806943302
+```sh
+npm install yarn@1.12.1 -y
+yarn
+```
