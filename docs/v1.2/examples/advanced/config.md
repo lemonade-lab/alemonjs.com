@@ -72,10 +72,6 @@ export interface AlemonOptions {
    */
   pupStart?: false
   /**
-   * puppeteer配置
-   */
-  puppeteer?: PuppeteerLaunchOptions
-  /**
    * env
    */
   env?: DotenvConfigOptions

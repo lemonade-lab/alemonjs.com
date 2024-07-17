@@ -79,17 +79,6 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 > 2.推荐安装[Chrome](https://www.google.cn/chrome/)
 
-### 二、Windows Chromium not find
-
-```typescript:line-numbers=1
-import { defineAlemonConfig } from 'alemonjs'
-export default defineAlemonConfig({
-  puppeteer: {
-    executablePath: '你的Chromium路径'
-  }
-})
-```
-
 ## 关于开发者
 
 ### 图片过大出不来图

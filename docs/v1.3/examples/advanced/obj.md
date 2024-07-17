@@ -109,38 +109,6 @@ const data = AppLoadConfig.get('')
 const data = ALunchConfig.set('headless', 'new')
 ```
 
-### 浏览器 Puppeteer
-
-```ts:line-numbers=1
-// 创建截图工具
-const Screenshot = new Puppeteer()
-```
-
-对指定路径的 html 文件进行渲染截图
-
-```ts:line-numbers=1
-const img: Buffer | false = await Screenshot.toFile(AdressHtml, {
-  SOptions: { type: 'jpeg', quality: 90 },
-  tab: 'body',
-  timeout: 2000
-})
-```
-
-对指定 url 地址进行渲染截图
-
-```ts:line-numbers=1
-const img: Buffer | false = await Screenshot.toFile('https://baidu.com')
-```
-
-配置管理
-
-```ts:line-numbers=1
-// 设置
-Screenshot.setLaunch({})
-// 读取
-const data = Screenshot.getLaunch()
-```
-
 ### 邮箱 Email
 
 该对象必须启动时配置 email
