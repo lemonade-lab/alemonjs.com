@@ -63,8 +63,8 @@ npm run dev
 `alemon.login.ts`需要配置才能正确登录
 
 ```typescript:line-numbers=1
-import { defineConfig } from 'alemonjs'
-export default defineConfig({
+import { ALoginOptions } from 'alemonjs'
+export default ALoginOptions({
   // 配置名 test
   test: {
     // qq平台配置
