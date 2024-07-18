@@ -52,8 +52,7 @@ export default defineAlemonConfig({
 `main.ts`
 
 ```ts:line-numbers=1
-import { createApp, APlugin, AEvent } from 'alemonjs'
-
+import { createApp, APlugin, Controllers } from 'alemonjs'
 class word extends APlugin {
   constructor() {
     super()
@@ -64,8 +63,8 @@ class word extends APlugin {
         }
     ]
   }
-  async post(e: AEvent) {
-    e.reply('哒哒')
+  async post() {
+    Controllers(this.e).Message.reply('哒哒')
   }
 }
 
@@ -102,8 +101,8 @@ export class word extends APlugin {
         }
       ]
   }
-  async post(e: AEvent) {
-    e.reply('哒哒')
+  async post() {
+    Controllers(this.e).Message.reply('哒哒')
   }
 }
 ```

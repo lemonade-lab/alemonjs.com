@@ -7,11 +7,13 @@ outline: deep
 ## 事件回调
 
 ```ts:line-numbers=1
-import { createApp, Events } from 'alemonjs'
+import { createApp, Events ,Controllers } from 'alemonjs'
 // 监听事件
 const event = new Events()
 event.response('MEMBERS', async e => {
-  if (/^你好$/.test(e.msg)) e.reply('你好呀')
+  if (/^你好$/.test(e.msg)) {
+    Controllers(e).Message.reply('你好呀')
+  }
 })
 // 构建应用
 const app = createApp(import.meta.url)
@@ -22,11 +24,11 @@ app.mount()
 ## 消息回调
 
 ```ts:line-numbers=1
-import { createApp, Messages } from 'alemonjs'
+import { createApp, Messages , Controllers} from 'alemonjs'
 // 响应消息
 const message = new Messages()
 message.response(/^你好吗/, async e => {
-  e.reply('当然')
+  Controllers(e).Message.reply('当然')
 })
 // 构建应用
 const app = createApp(import.meta.url)
@@ -39,7 +41,7 @@ app.mount()
 `./apps.ts`
 
 ```ts
-import { AEvent, APlugin } from 'alemonjs'
+import { AEvent, APlugin ,Controllers } from 'alemonjs'
 export class word extends APlugin {
   constructor() {
     super()
@@ -50,8 +52,8 @@ export class word extends APlugin {
       }
     ]
   }
-  async post(e: AEvent) {
-    e.reply('你好')
+  async post() {
+    Controllers(this.e).Message.reply('你好')
   }
 }
 ```

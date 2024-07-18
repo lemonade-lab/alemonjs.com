@@ -131,7 +131,7 @@ if (e.platform == 'qq') {
 } else if (e.platform == 'kook') {
   // emoji
 } else {
-  e.reply('当前平台不支持emoji')
+  e.Message.reply('当前平台不支持emoji')
 }
 ```
 

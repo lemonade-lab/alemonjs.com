@@ -32,6 +32,7 @@ createApp(import.meta.url).arg(e => [
 ```
 
 ```ts:line-numbers=1
+import { Controllers } from 'alemonjs'
 // 使用
 export class PluginName extends APlugin {
   constructor() {
@@ -44,8 +45,8 @@ export class PluginName extends APlugin {
       ]
   }
 
-  async postHello(e, dataApi, control2) {
-    e.reply('你好')
+  async postHello(_, dataApi, control2) {
+    Controllers(this.e).Message.reply('你好')
     console.log(dataApi()) // I am dataApi
     console.log(control2()) // I am control2
 
@@ -53,8 +54,8 @@ export class PluginName extends APlugin {
   }
 
   // 订阅的函数也一样生效
-  async sub(e, dataApi, control2) {
-    e.reply('新的订阅')
+  async sub(_, dataApi, control2) {
+    Controllers(this.e).Message.reply('新的订阅')
     console.log(dataApi()) // I am dataApi
     console.log(control2()) // I am control2
     // 取消
