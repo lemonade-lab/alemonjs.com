@@ -39,8 +39,4 @@ features:
       height: 80
 ---
 
-<script setup>
-import HomeView from '.vitepress/views/HomeView.vue'
-</script>
 
-<HomeView />
