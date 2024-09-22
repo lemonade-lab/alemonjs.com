@@ -56,10 +56,11 @@ export default OnResponse(
 
 ### apps/\*\*/\*/config.ts
 
-> 配置同目录下 res.ts 的配置
+> 对同目录下 res.ts 的进行其他配置
 
 ```ts title="res.ts"
 export default ResponseConfig({
-  //
+  // 只响应 kook 平台 （可选）
+  platform: 'kook'
 })
 ```

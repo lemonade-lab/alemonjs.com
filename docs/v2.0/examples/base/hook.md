@@ -21,6 +21,8 @@ export default OnResponse(
 
     // Text And At
     Send(Text('Hello '), At('123456'), Text(', How are things going?'))
+
+    //
   },
   'message.create',
   /^(#|\/)?炼丹师学徒$/
@@ -35,8 +37,31 @@ export default OnResponse(
 import { useParse } from 'alemonjs'
 export default OnResponse(
   async e => {
-    // string
+    // user msg
     const text = useParse(e.Msgs, 'Text')
+
+    if (!text) {
+      // 消息为空
+      return
+    }
+
+    // ats
+    const ats = useParse(e.Msgs, 'At')
+
+    if (!ats || ats.lenght === 0) {
+      // at为空
+      return
+    }
+
+    // user 类型的at，且不是bot
+    const UserID = ats.find(item => item.typing == 'user' && !item.bot)
+
+    if (!UserID) {
+      // 未找到
+      return
+    }
+
+    //
   },
   'message.create',
   /^(#|\/)?炼丹师学徒$/

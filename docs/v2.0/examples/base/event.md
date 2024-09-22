@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# 如何开始
+# 事件类型
 
 ## 消息创建 message.create
 
@@ -21,7 +21,7 @@ export type AEventByMessageCreate = {
    */
   ChannelId: string
   /**
-   * 消息类型
+   * 是否是主人，是则ture
    */
   IsMaster: boolean
   /**
