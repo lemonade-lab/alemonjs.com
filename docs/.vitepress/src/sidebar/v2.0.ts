@@ -13,5 +13,17 @@ export default [
       { text: 'hook', link: '/v2.0/examples/base/hook' },
       { text: 'api', link: '/v2.0/examples/base/api' },
     ]
+  },
+  {
+    text: '进阶',
+    items: [
+      { text: '模块', link: '/v2.0/examples/dev/api' },
+    ]
+  },
+  {
+    text: '平台',
+    items: [
+      { text: '自定义', link: '/v2.0/examples/pkg/api' },
+    ]
   }
 ] as DefaultTheme.SidebarItem[]
