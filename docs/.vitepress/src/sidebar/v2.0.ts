@@ -25,5 +25,13 @@ export default [
     items: [
       { text: '自定义', link: '/v2.0/examples/pkg/api' },
     ]
+  },
+  {
+    text: '高阶',
+    items: [
+      { text: '功能预览', link: '/v2.0/examples/core/function' },
+      { text: '特殊接口', link: '/v2.0/examples/core/controller' },
+      { text: '内置接口', link: '/v2.0/examples/core/obj' },
+    ]
   }
 ] as DefaultTheme.SidebarItem[]
