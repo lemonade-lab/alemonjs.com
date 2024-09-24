@@ -10,7 +10,7 @@ V2 的响应是基于文件系统的，且是运行时的。
 
 也就是说，当 res 没有匹配到时，不会对该模块进行加载
 
-当且仅当路过 res 时，会进行初始化，并在内部通过算法来优化匹配速度。
+当且仅当路过 res 时会进行加载，并在内部通过算法来优化匹配速度。
 
 :::
 
@@ -18,7 +18,7 @@ V2 的响应是基于文件系统的，且是运行时的。
 
 > 定义响应内容
 
-```ts title="res.ts"
+```ts
 export default OnResponse(
   event => {
     // 执行内容
@@ -42,7 +42,7 @@ Send(Text('Hello Word !'))
 
 - 完整例子
 
-```ts title="res.ts"
+```ts
 import { Text, useSend } from 'alemonjs'
 export default OnResponse(
   event => {
@@ -56,9 +56,15 @@ export default OnResponse(
 
 ### apps/\*\*/\*/config.ts
 
+::: warning
+
+实验性功能
+
+:::
+
 > 对同目录下 res.ts 的进行其他配置
 
-```ts title="res.ts"
+```ts
 export default ResponseConfig({
   // 只响应 kook 平台 （可选）
   platform: 'kook'

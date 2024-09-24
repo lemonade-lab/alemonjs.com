@@ -59,7 +59,7 @@ export default OnResponse(
     }
 
     // user 类型的at，且不是bot
-    const UserID = ats.find(item => item.typing == 'user' && !item.bot)
+    const UserID = ats.find(item => item.typing == 'user' && !item.bot)?.value
     if (!UserID) {
       // 未找到
       return

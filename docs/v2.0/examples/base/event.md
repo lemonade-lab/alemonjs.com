@@ -58,9 +58,3 @@ export type AEventByMessageCreate = {
   value: any
 }
 ```
-
-## 消息更新 message.update
-
-## 消息撤回 message.delete
-
-## 私聊消息创建 private.message.create

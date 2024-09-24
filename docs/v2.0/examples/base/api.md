@@ -8,7 +8,7 @@ outline: deep
 
 - 继续匹配
 
-```ts title="res.ts"
+```ts
 export default OnResponse(
   (_, { next }) => {
     // 即使完成了，也继续执行匹配
@@ -21,8 +21,15 @@ export default OnResponse(
 
 ## ResponseConfig
 
+::: warning
+
+实验性功能
+
+:::
+
 ```ts
 export default ResponseConfig({
-  //
+  // 只响应 kook 平台 （可选）
+  platform: 'kook'
 })
 ```

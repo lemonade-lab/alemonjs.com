@@ -4,6 +4,12 @@ outline: deep
 
 # 如何开始
 
+::: tip
+
+更多详细推荐前往 Status 中的 npm 查看对应内容
+
+:::
+
 | Project                  | Status                              | Description       |
 | ------------------------ | ----------------------------------- | ----------------- |
 | [alemonjs]               | [![alemonjs-s]][alemonjs-p]         | 标准应用解析器    |
@@ -11,6 +17,7 @@ outline: deep
 | [@alemonjs/discord]      | [![discord-s]][discord-p]           | DC 公会机器人连接 |
 | [@alemonjs/qq-group-bot] | [![qq-group-bot-s]][qq-group-bot-p] | QQ 群机器人连接   |
 | [@alemonjs/qq-guild-bot] | [![qq-guild-bot-s]][qq-guild-bot-p] | QQ 频道机器人连接 |
+| [@alemonjs/qq]           | [![qq-s]][qq-p]                     | QQ 机器人连接     |
 
 [alemonjs]: https://github.com/ningmengchongshui/alemonjs
 [alemonjs-s]: https://img.shields.io/npm/v/alemonjs.svg
@@ -27,6 +34,9 @@ outline: deep
 [@alemonjs/qq-guild-bot]: https://github.com/alemonjs/qq-guild-bot
 [qq-guild-bot-s]: https://img.shields.io/npm/v/@alemonjs/qq-guild-bot.svg
 [qq-guild-bot-p]: https://www.npmjs.com/package/@alemonjs/qq-guild-bot
+[@alemonjs/qq]: https://github.com/alemonjs/qq
+[qq-s]: https://img.shields.io/npm/v/@alemonjs/qq.svg
+[qq-p]: https://www.npmjs.com/package/@alemonjs/qq
 
 ## 初始化环境
 
@@ -98,12 +108,9 @@ npx tsx index.ts --login "kook" --token "xxxx"
 
 ## 热更新配置
 
-> 创建文件 alemon.config.yaml
+- alemon.config.yaml
 
 ```yaml
-# 不使用 --login 时将尝试读取此配置内容以启动机器人
-login: 'kook'
-
 # @alemonjs/kook
 
 kook:
@@ -113,33 +120,52 @@ kook:
     - '654321'
 # kook end
 
-# @alemonjs/discord
-discord:
-  token: 'xxxx'
-  master_id:
-    - '123456'
-    - '654321'
-# discord end
+# 不使用 --login 时将尝试读取此配置内容以启动机器人
+login: 'kook'
 
-# @alemonjs/qq-guild-bot
-qq-guild-bot:
-  # 编号
-  app_id: ''
-  # 令牌
-  token: ''
-  # 主人
-  master_id:
-    - ''
+# pm2
+pm2:
+  name: 'kook'
+  script: 'npx tsx index.ts --login kook'
+```
 
-# @alemonjs/qq-group-bot
-qq-group-bot:
-  # 编号
-  app_id: ''
-  # 令牌
-  token: ''
-  # 密钥
-  secret: ''
-  # 主人
-  master_id:
-    - ''
+## PM2
+
+```sh
+yarn add pm2 -D
+```
+
+- alemon.config.yaml
+
+```yaml
+# pm2
+pm2:
+  name: 'kook'
+  script: 'npx tsx index.ts --login kook'
+  env:
+    NODE_ENV: 'production'
+```
+
+- pm2.config.cjs
+
+```js
+const fs = require('fs')
+const yaml = require('yaml')
+const data = fs.readFileSync('./alemon.config.yaml', 'utf8')
+const config = yaml.parse(data)
+const app = config?.pm2 ?? {}
+/**
+ * @type {{ apps: import("pm2").StartOptions[] }}
+ */
+module.exports = {
+  apps: [
+    {
+      ...app
+    }
+  ]
+}
+```
+
+```sh
+npx pm2 start --config pm2.condig.cjs
 ```
