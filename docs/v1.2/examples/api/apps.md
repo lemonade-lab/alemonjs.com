@@ -21,17 +21,17 @@ outline: deep
 ::: code-group
 
 ```sh [npm]
-npm install alemonjs@latest
+npm install alemonjs@1
 ```
 
 ```sh [pnpm]
 npm install pnpm -g
-pnpm install alemonjs@latest
+pnpm install alemonjs@1
 ```
 
 ```sh [yarn]
 npm install yarn -g
-yarn install alemonjs@latest
+yarn install alemonjs@1
 ```
 
 :::

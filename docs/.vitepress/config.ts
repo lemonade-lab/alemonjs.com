@@ -32,9 +32,8 @@ export default defineConfig({
     // },
     // 页脚
     footer: {
-      message: 'GNU General Public License v2.0',
       copyright:
-        'Copyright © 2023-present LEMONADE  |  <a style="color: #3796d9;" href="https://beian.miit.gov.cn/">津ICP备2023004480号</a>'
+        'Copyright © 2023-present LEMONADE'
     },
     // 搜索配置（二选一）
     search: {

@@ -13,10 +13,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /v2.0/markdown
+      link: /v1.3/markdown
     - theme: alt
       text: 接口文档
-      link: /v2.3/examples/api/apps
+      link: /v1.3/examples/api/apps
 
 features:
   - title: 简单易懂
